@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRPF 2025 - Proposta para Ksquare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../imagens/fundo-todo.png') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            padding: 20px;
+            overflow-y: auto;
+            padding-bottom: 100px; /* Extra padding at bottom to ensure content isn't hidden behind navigation buttons */
+        }
+        
+        /* Special styling for the first slide to keep it centered */
+        #slide-1 {
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide-content {
+            max-width: 80%;
+            max-height: 80%;
+            text-align: center;
+        }
+
+        .slide-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        .content-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .content-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border-radius: 15px;
+            width: 100%;
+        }
+
+        .content-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .content-header h3 {
+            color: #f0f0f0;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .info-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            width: calc(50% - 10px);
+            min-width: 300px;
+        }
+
+        .info-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #fff;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .info-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-card li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .highlight {
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        .next-button, .prev-button {
+            position: fixed;
+            bottom: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        .next-button {
+            right: 40px;
+        }
+
+        .prev-button {
+            left: 40px;
+        }
+
+        .next-button:hover, .prev-button:hover {
+            transform: scale(1.1);
+        }
+
+        .next-button img, .prev-button img {
+            width: 80px;
+            height: auto;
+        }
+
+        .prev-button img {
+            transform: rotate(180deg);
+        }
+
+        .full-width-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .full-width-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #fff;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .full-width-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 105, 180, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .slide-content img {
+                max-height: 50vh;
+            }
+
+            .content-header {
+                padding: 15px;
+            }
+
+            .next-button, .prev-button {
+                bottom: 20px;
+            }
+
+            .next-button {
+                right: 20px;
+            }
+
+            .prev-button {
+                left: 20px;
+            }
+
+            .next-button img, .prev-button img {
+                width: 60px;
+            }
+            
+            .slide {
+                padding-bottom: 80px; /* Smaller padding for mobile */
+            }
+            
+            .info-card {
+                width: 100%; /* Full width on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: Primeira página com brpf25-01.png -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-content">
+                <img src="../imagens/brpf25-01.png" alt="BRPF 2025">
+                <h2 style="margin-top: 20px; font-size: 2em;">Proposta para Ksquare</h2>
+                <p style="font-size: 1.2em; margin-top: 10px;">22-23 de Novembro de 2025</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Sobre o BRPF -->
+        <div class="slide" id="slide-2">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>O que é o BRPF?</h2>
+                    <h3>Brasil Pump Festival - 17ª Edição</h3>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>História e Tradição</h3>
+                        <p>• <span class="highlight">20 anos de história</span> - Comemorando duas décadas desde a primeira edição</p>
+                        <p>• <span class="highlight">Maior campeonato nacional</span> de Pump It Up do Brasil</p>
+                        <p>• Evento que reúne os melhores jogadores do país</p>
+                        <p>• Tradição de excelência e competitividade</p>
+                        <p>• Organizado por profissionais com vasta experiência em eventos de e-sports</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Impacto e Alcance</h3>
+                        <p>• <span class="highlight">100-150 participantes</span> esperados</p>
+                        <p>• <span class="highlight">Transmissão ao vivo</span> para todo o Brasil</p>
+                        <p>• Canais oficiais com milhares de seguidores</p>
+                        <p>• Cobertura de mídia especializada</p>
+                        <p>• Evento referência na comunidade de jogos de dança</p>
+                        <p>• Participantes de <span class="highlight">todo o território nacional</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Nossa Missão -->
+        <div class="slide" id="slide-3">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Nossa Missão</h2>
+                    <h3>Por que o BRPF é importante?</h3>
+                </div>
+                <div class="full-width-card">
+                    <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">
+                        <span class="highlight">"Promover a cultura dos jogos de ritmo no Brasil, unindo competitividade, 
+                        arte e comunidade em um evento de nível nacional."</span>
+                    </p>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Valores Fundamentais</h3>
+                        <ul>
+                            <li><span class="highlight">Excelência técnica</span> - Promover o mais alto nível de jogo</li>
+                            <li><span class="highlight">Inclusão</span> - Categorias para todos os níveis e gêneros</li>
+                            <li><span class="highlight">Comunidade</span> - Fortalecer laços entre jogadores</li>
+                            <li><span class="highlight">Inovação</span> - Incorporar novas tecnologias e formatos</li>
+                            <li><span class="highlight">Espetáculo</span> - Criar uma experiência memorável</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Impacto Cultural</h3>
+                        <ul>
+                            <li>Preservação de uma <span class="highlight">tradição de 20 anos</span></li>
+                            <li>Incentivo à <span class="highlight">atividade física através dos jogos</span></li>
+                            <li>Promoção da <span class="highlight">cultura e-sports brasileira</span></li>
+                            <li>Criação de <span class="highlight">rede nacional de jogadores</span></li>
+                            <li>Inspiração para <span class="highlight">novos talentos</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Por que o Ksquare? -->
+        <div class="slide" id="slide-4">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Por que o Ksquare?</h2>
+                    <h3>A parceria ideal para o BRPF 2025</h3>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Vantagens do Ksquare</h3>
+                        <ul>
+                            <li><span class="highlight">Infraestrutura</span> - Sistema de som necessário para o evento</li>
+                            <li><span class="highlight">Espaço amplo</span> - Capacidade para 100+ participantes</li>
+                            <li><span class="highlight">Localização privilegiada</span> - Fácil acesso</li>
+                            <li><span class="highlight">Ambiente diferenciado</span> - Rooftop com visual único</li>
+                            <li><span class="highlight">Prestígio</span> - Alinhamento com a qualidade e importância do evento</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Benefícios Mútuos</h3>
+                        <ul>
+                            <li><span class="highlight">Visibilidade</span> - Exposição da marca durante transmissão</li>
+                            <li><span class="highlight">Público qualificado</span> - Jogadores e espectadores</li>
+                            <li><span class="highlight">Conteúdo exclusivo</span> - Material para redes sociais</li>
+                            <li><span class="highlight">Associação positiva</span> - Evento tradicional e respeitado</li>
+                            <li><span class="highlight">Potencial de crescimento</span> - Base para edições futuras</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: O Evento -->
+        <div class="slide" id="slide-5">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>O Evento</h2>
+                    <h3>Estrutura e Categorias</h3>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Categorias Confirmadas</h3>
+                        <ul>
+                            <li><span class="highlight">Speed Pró Masculino</span> - Categoria principal masculina</li>
+                            <li><span class="highlight">Speed Pró Feminino</span> - Categoria principal feminina</li>
+                            <li><span class="highlight">Speed Sem Barra</span> - Categoria onde o uso da barra é proibido</li>
+                            <li><span class="highlight">Co-op</span> - Modo cooperativo em duplas</li>
+                            <li><span class="highlight">Freestyle</span> - Performance artística e criativa</li>
+                        </ul>
+                        <p style="margin-top: 15px;">Possibilidade de incluir categorias adicionais para iniciantes e intermediários, dependendo do espaço.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Estrutura do Evento</h3>
+                        <ul>
+                            <li><span class="highlight">Duração:</span> 2 dias (fim de semana)</li>
+                            <li><span class="highlight">Data preferencial:</span> 22-23 de novembro</li>
+                            <li><span class="highlight">Formato:</span> Eliminação progressiva</li>
+                            <li><span class="highlight">Transmissão ao vivo:</span> YouTube e Twitch</li>
+                            <li><span class="highlight">Premiação:</span> Troféus, Brindes exclusivos e reconhecimento oficial</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Infraestrutura Necessária -->
+        <div class="slide" id="slide-6">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Infraestrutura Necessária</h2>
+                    <h3>O que precisamos para o evento</h3>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Equipamentos</h3>
+                        <ul>
+                            <li><span class="highlight">Máquinas de Pump It Up:</span> 2-3 unidades</li>
+                            <li><span class="highlight">Sistema de som:</span> Amplificação profissional</li>
+                            <li><span class="highlight">Iluminação:</span> Luzes para palco e área de jogo</li>
+                            <li><span class="highlight">Equipamentos de transmissão:</span> Câmeras, microfones</li>
+                            <li><span class="highlight">Telas:</span> Para exibição das imagens das máquinas, vídeos exclusivos para o evento e resultados</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Espaço e Logística</h3>
+                        <ul>
+                            <li><span class="highlight">Área para máquinas:</span> Mínimo 5x5m por máquina</li>
+                            <li><span class="highlight">Área para público:</span> Capacidade para 100+ pessoas</li>
+                            <li><span class="highlight">Área técnica:</span> Para equipe de transmissão</li>
+                            <li><span class="highlight">Energia:</span> Pontos de energia estáveis</li>
+                            <li><span class="highlight">Internet:</span> Conexão de alta velocidade para streaming e conexão das máquinas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Proposta de Parceria -->
+        <div class="slide" id="slide-8">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Proposta de Parceria</h2>
+                    <h3>Benefícios e Visibilidade</h3>
+                </div>
+                <div class="full-width-card">
+                    <h3>Colaboração Estratégica</h3>
+                    <p>Buscamos uma parceria para uso do espaço por 2 dias (22-23 de novembro)</p>
+                    <p>Evento comemorativo que celebra 20 anos de exitência e que também é parte da cultura sul-coreana</p>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Benefícios para o Ksquare</h3>
+                        <ul>
+                            <li><span class="highlight">Exposição de marca:</span> Logo em todos os materiais</li>
+                            <li><span class="highlight">Transmissão ao vivo:</span> Menções durante o evento</li>
+                            <li><span class="highlight">Público qualificado:</span> 100+ pessoas no local</li>
+                            <li><span class="highlight">Mídia social:</span> Conteúdo exclusivo para redes</li>
+                            <li><span class="highlight">Networking:</span> Contato com comunidade engajada</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Projeção de Público</h3>
+                        <ul>
+                            <li><span class="highlight">Participantes:</span> 70-100 competidores</li>
+                            <li><span class="highlight">Espectadores locais:</span> 80-100 pessoas</li>
+                            <li><span class="highlight">Audiência online:</span> 1000+ espectadores</li>
+                            <li><span class="highlight">Alcance em redes sociais:</span> 5000+ visualizações</li>
+                            <li><span class="highlight">Presença digital:</span> Conteúdo permanente pós-evento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Equipe Organizadora -->
+        <div class="slide" id="slide-9">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Equipe Organizadora</h2>
+                    <h3>Profissionais com experiência</h3>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Organizadores Principais</h3>
+                        <ul>
+                            <li><span class="highlight">Jefferson Favetti (PzOX):</span> Organizador principal</li>
+                            <li>• Experiência em BRPF (2016, 2017, 2018)</li>
+                            <li>• Responsável por transmissões de diversos eventos</li>
+                            <li><span class="highlight">Dênis Lima (Filmadenis):</span> Organizador e mantenedor</li>
+                            <li>• Criador do Octógono Pump Natal</li>
+                            <li>• Experiência internacional (IPF 2014-2018)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Equipe de Suporte</h3>
+                        <ul>
+                            <li><span class="highlight">Laura Pataro (Dini):</span> Comunicação e design</li>
+                            <li>• Co-fundadora da LBPIU e CBPIU</li>
+                            <li>• Experiência em gestão de eventos</li>
+                            <li><span class="highlight">Bruna Rodrigues (Bru):</span> Organizadora</li>
+                            <li>• Criadora do Empowerful Girls</li>
+                            <li>• Representante do Pump Recife</li>
+                            <li><span class="highlight">Equipe LBPIU:</span> Suporte técnico e operacional</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Próximos Passos -->
+        <div class="slide" id="slide-10">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Próximos Passos</h2>
+                    <h3>Concretizando a parceria</h3>
+                </div>
+                <div class="full-width-card">
+                    <h3>Cronograma de Decisão</h3>
+                    <p>Estamos em fase de negociação até <span class="highlight">05 de setembro de 2025</span></p>
+                    <p>Anúncio oficial do evento programado para <span class="highlight">12 de setembro de 2025</span></p>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>O que precisamos definir</h3>
+                        <ul>
+                            <li><span class="highlight">Confirmação da data:</span> 22-23 de novembro (preferencial)</li>
+                            <li><span class="highlight">Detalhes do contrato:</span> Valores e condições</li>
+                            <li><span class="highlight">Necessidades técnicas:</span> Energia, som, espaço</li>
+                            <li><span class="highlight">Logística:</span> Horários de montagem e desmontagem</li>
+                            <li><span class="highlight">Divulgação:</span> Como promover o Ksquare no evento</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Contato</h3>
+                        <p style="text-align: center; margin-top: 20px;">
+                            <span class="highlight">Jefferson Favetti (PzOX)</span><br>
+                            Organizador BRPF 2025<br>
+                            <span class="highlight">jefferson.favetti@gmail.com</span><br>
+                            <span class="highlight">(19) 99675-9596</span>
+                        </p>
+                        <p style="text-align: center; margin-top: 20px;">
+                            <span class="highlight">Canais Oficiais:</span><br>
+                            YouTube: youtube.com/pumpesports<br>
+                            Twitch: twitch.tv/pumpesports<br>
+                            Instagram: @brpf2025 @lbpiu
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões de navegação -->
+        <button class="prev-button" onclick="prevSlide()">
+            <img src="../imagens/pink arrow.png" alt="Anterior">
+        </button>
+        <button class="next-button" onclick="nextSlide()">
+            <img src="../imagens/pink arrow.png" alt="Próximo">
+        </button>
+    </div>
+
+    <script>
+        // Array para armazenar os slides
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        // Função para avançar para o próximo slide
+        function nextSlide() {
+            // Remover classe active do slide atual
+            slides[currentSlide].classList.remove('active');
+            
+            // Avançar para o próximo slide ou voltar para o primeiro
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Adicionar classe active ao novo slide atual
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Função para voltar para o slide anterior
+        function prevSlide() {
+            // Remover classe active do slide atual
+            slides[currentSlide].classList.remove('active');
+            
+            // Voltar para o slide anterior ou ir para o último
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            
+            // Adicionar classe active ao novo slide atual
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Permitir navegação com teclas de seta
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>

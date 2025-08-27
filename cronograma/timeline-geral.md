@@ -15,7 +15,7 @@
 
 ### Semana 2 (17-23 de agosto)
 
-- **18/08:** **INÍCIO:** Negociação com Ksquare (Kaneda responsável)
+- **18/08:** **INÍCIO:** Negociação com Ksquare (PzOX responsável)
 - **20/08:** **PRIMEIRO CONTEÚDO:** Publicação do logo BRPF 2025 (Alice)
 - **21/08:** **DEADLINE:** Confirmação da data da transmissão CBPIU
 - **22/08:** Continuação das negociações com Ksquare
@@ -24,7 +24,7 @@
 
 - **25/08:** **TRANSMISSÃO CBPIU:** Apresentação dos organizadores BRPF
 - **25/08:** **REGRAS FS:** Conclusão e envio do documento Fase 1 (Beffy)
-- **26/08:** **FOLLOW-UP 1:** Reunião de acompanhamento com Kaneda
+- **26/08:** **FOLLOW-UP 1:** Reunião de acompanhamento com PzOX
 - **27/08:** **REGRAS FS:** Consolidação do feedback dos revisores
 - **28/08:** **SEGUNDO CONTEÚDO:** Carrossel dos organizadores (Alice)
 - **28/08:** **REGRAS FS:** Início das artes de divulgação (Designer LBPIU)
@@ -35,7 +35,7 @@
 ### Semana 4 (31 de agosto - 6 de setembro)
 
 - **01/09:** **REGRAS FS:** PUBLICAÇÃO DAS REGRAS DO FREESTYLE (Alice + LBPIU)
-- **01/09:** **FOLLOW-UP 2:** Segunda reunião de acompanhamento com Kaneda
+- **01/09:** **FOLLOW-UP 2:** Segunda reunião de acompanhamento com PzOX
 - **03/09:** **TERCEIRO CONTEÚDO:** Posts sobre proximidade do anúncio (Alice)
 - **05/09:** **DEADLINE KSQUARE:** Fim das negociações com Ksquare (ou extensão até 10/09)
 - **05/09:** **PLANO B:** Início das negociações com Login (se necessário)
@@ -144,15 +144,15 @@
 
 | Data  | Marco                           | Responsável | Impacto                             |
 | ----- | ------------------------------- | ----------- | ----------------------------------- |
-| 18/08 | Início negociação Ksquare       | Kaneda      | Alto - Define local do evento       |
+| 18/08 | Início negociação Ksquare       | PzOX      | Alto - Define local do evento       |
 | 20/08 | Primeiro conteúdo redes sociais  | Alice       | Médio - Inicia divulgação           |
 | 25/08 | Transmissão CBPIU               | Pump eSports| Alto - Apresenta organizadores      |
 | 25/08 | Documento FS Fase 1 pronto      | Beffy       | Alto - Inicia revisão regras        |
-| 26/08 | Follow-up 1 com Kaneda          | Equipe      | Alto - Acompanha negociação         |
+| 26/08 | Follow-up 1 com PzOX          | Equipe      | Alto - Acompanha negociação         |
 | 29/08 | Documento FS Fase 2 pronto      | Beffy       | Alto - Versão final regras          |
 | 01/09 | **PUBLICAÇÃO REGRAS FS**        | Alice/LBPIU | Crítico - Marco categoria FS        |
-| 01/09 | Follow-up 2 com Kaneda          | Equipe      | Alto - Avalia progresso             |
-| 05/09 | Deadline Ksquare                | Kaneda      | Crítico - Decisão final local      |
+| 01/09 | Follow-up 2 com PzOX          | Equipe      | Alto - Avalia progresso             |
+| 05/09 | Deadline Ksquare                | PzOX      | Crítico - Decisão final local      |
 | 12/09 | Anúncio oficial data/local      | Pump eSports| Crítico - Marco público            |
 | 06/10 | Abertura das inscrições         | Equipe      | Alto - Início da receita            |
 | 03/11 | Fechamento das inscrições       | Equipe      | Crítico - Define participantes      |
@@ -187,7 +187,7 @@ Todas as datas e prazos do cronograma serão ajustados proporcionalmente conform
 
 ### Organização Geral
 - **Organizador Principal:** PzOX
-- **Negociação Ksquare:** Kaneda
+- **Negociação Ksquare:** PzOX
 - **Negociação Login:** Takeo
 
 ### Social Media e Conteúdo

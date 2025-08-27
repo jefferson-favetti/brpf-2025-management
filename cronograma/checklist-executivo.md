@@ -22,7 +22,7 @@
 
 #### Negociação e Conteúdo
 
-- [ ] **18/08** - **INÍCIO:** Kaneda inicia negociação com Ksquare
+- [ ] **18/08** - **INÍCIO:** PzOX inicia negociação com Ksquare
 - [ ] **20/08** - **PRIMEIRO POST:** Alice publica logo BRPF 2025 + "coming soon"
 - [ ] **21/08** - Confirmar data da transmissão CBPIU (semana 25/08)
 - [ ] **22/08** - Continuação das negociações com Ksquare
@@ -32,14 +32,14 @@
 #### Marcos Importantes
 
 - [ ] **25/08** - **TRANSMISSÃO CBPIU:** Apresentação organizadores BRPF
-- [ ] **26/08** - **FOLLOW-UP 1:** Reunião acompanhamento com Kaneda
+- [ ] **26/08** - **FOLLOW-UP 1:** Reunião acompanhamento com PzOX
 - [ ] **28/08** - **SEGUNDO POST:** Alice publica carrossel organizadores
 
 ### ⏰ Primeira Semana Setembro (31/08-06/09)
 
 #### Decisões Críticas
 
-- [ ] **01/09** - **FOLLOW-UP 2:** Segunda reunião acompanhamento com Kaneda
+- [ ] **01/09** - **FOLLOW-UP 2:** Segunda reunião acompanhamento com PzOX
 - [ ] **03/09** - **TERCEIRO POST:** Alice sobre proximidade do anúncio
 - [ ] **05/09** - **DEADLINE KSQUARE:** Decisão final sobre Ksquare
 - [ ] **05/09** - **PLANO B:** Se necessário, Takeo inicia negociação com Login
@@ -217,7 +217,7 @@
 ### Confirmados (Sem Custo)
 
 - ✅ **Organizador Principal:** PzOX
-- ✅ **Negociação Ksquare:** Kaneda
+- ✅ **Negociação Ksquare:** PzOX
 - ✅ **Negociação Login:** Takeo
 - ✅ **Social Media:** Alice (conteúdo semanal)
 - ✅ **Organização LBPIU:** Dini, Brwnninha, Denis
@@ -330,10 +330,10 @@
 
 ## 🎯 PRÓXIMAS 5 AÇÕES CRÍTICAS
 
-1. **Início negociação Ksquare** (18/08 - Kaneda)
+1. **Início negociação Ksquare** (18/08 - PzOX)
 2. **Primeiro conteúdo redes sociais** (20/08 - Alice)
 3. **Transmissão CBPIU** (25/08 - Pump eSports)
-4. **Follow-up 1 com Kaneda** (26/08)
+4. **Follow-up 1 com PzOX** (26/08)
 5. **DEADLINE KSQUARE** (05/09 - Decisão final)
 
 ---

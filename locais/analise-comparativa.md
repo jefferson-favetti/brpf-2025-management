@@ -13,7 +13,7 @@
 | **Capacidade**             | 100+ pessoas           | Máximo 80 pessoas                | ✅ Ksquare |
 | **Infraestrutura**         | Superior               | Adequada                         | ✅ Ksquare |
 | **Risco Financeiro**       | Moderado               | Muito Baixo                      | ✅ Login   |
-| **Status Negociação**      | Em andamento (Kaneda)  | Standby (Takeo)                  | 🟡 Ksquare |
+| **Status Negociação**      | Em andamento (PzOX)  | Standby (Takeo)                  | 🟡 Ksquare |
 
 **SITUAÇÃO ATUAL:** Negociação com Ksquare em andamento até 05/09, Login como plano B
 
@@ -252,7 +252,7 @@
 
 #### KSQUARE - Negociação Principal (18/08 - 05/09)
 
-- [x] **18/08** - Kaneda inicia negociação formal
+- [x] **18/08** - PzOX inicia negociação formal
 - [ ] **26/08** - Follow-up 1: Reunião de acompanhamento
 - [ ] **01/09** - Follow-up 2: Avaliação do progresso
 - [ ] **05/09** - **DEADLINE:** Decisão final sobre Ksquare
@@ -289,7 +289,7 @@
 
 ### Ksquare - Negociação Ativa
 
-- **Responsável:** Kaneda
+- **Responsável:** PzOX
 - **Custo negociado:** R$ 2.900 total (R$ 2.500 local + R$ 400 som)
 - **Capacidade:** 100+ pessoas
 - **Status:** Negociação em andamento desde 18/08
@@ -304,8 +304,8 @@
 
 ### Cronograma de Follow-ups
 
-- **26/08:** Primeira reunião de acompanhamento com Kaneda
-- **01/09:** Segunda reunião de acompanhamento com Kaneda
+- **26/08:** Primeira reunião de acompanhamento com PzOX
+- **01/09:** Segunda reunião de acompanhamento com PzOX
 - **05/09:** Decisão final sobre Ksquare
 - **12/09:** Anúncio público do local escolhido
 

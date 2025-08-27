@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRPF 2025 - Apresentação dos Organizadores</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../imagens/fundo-todo.png') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            padding: 20px;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide-content {
+            max-width: 80%;
+            max-height: 80%;
+            text-align: center;
+        }
+
+        .slide-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        .organizer-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .organizer-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border-radius: 15px;
+        }
+
+        .organizer-header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #fff;
+        }
+
+        .organizer-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .organizer-header h3 {
+            color: #f0f0f0;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .info-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            width: calc(50% - 10px);
+            min-width: 300px;
+        }
+
+        .info-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #fff;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .next-button {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        .next-button:hover {
+            transform: scale(1.1);
+        }
+
+        .next-button img {
+            width: 80px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content img {
+                max-height: 50vh;
+            }
+
+            .organizer-content {
+                padding: 15px;
+            }
+
+            .organizer-content img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .next-button {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .next-button img {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: Primeira página com brpf25-01.png -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-content">
+                <img src="../imagens/brpf25-01.png" alt="BRPF 2025">
+            </div>
+        </div>
+
+        <!-- Estrutura para slides dos organizadores -->
+        <!-- Slide 2: PzOX -->
+        <div class="slide" id="slide-2">
+            <div class="organizer-slide">
+                <div class="organizer-header">
+                    <img src="../imagens/PzOX.jpeg" alt="Jefferson Favetti">
+                    <h2>Jefferson Favetti</h2>
+                    <h3>"PzOX"</h3>
+                    <p><strong>Ocupação:</strong> Streamer e organizador</p>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Eventos organizados</h3>
+                        <p>• BRPF (2016, 2017 e 2018) - Organização e transmissão</p>
+                        <p>  Organizador e responsável pela transmissão</p>
+                        <p>• Onlinezando (2017 e 2018) - Organização e transmissão</p>
+                        <p>  Organizador principal e responsável pela transmissão</p>
+                        <p>• B1g One (2019, 2022 e 2024) - Suporte e transmissão</p>
+                        <p>  Organizador suporte e responsável pela transmissão</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Eventos transmitidos</h3>
+                        <p>• BRPF (2015 a 2019 e 2024)</p>
+                        <p>• SSBH (2016 a 2018)</p>
+                        <p>• B1g One (2018, 2019, 2022 e 2024)</p>
+                        <p>• Ostrão (2016 a 2019)</p>
+                        <p>• Gauchones (2017 a 2019)</p>
+                        <p>• NEtão (2016 e 2017, co-participação em 2023 e 2025)</p>
+                        <p>• Try To BPM 2016</p>
+                        <p>• PaulisSteps 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Denis -->
+        <div class="slide" id="slide-3">
+            <div class="organizer-slide">
+                <div class="organizer-header">
+                    <img src="../imagens/Denis.jpeg" alt="Denis Lima">
+                    <h2>Dênis Lima</h2>
+                    <h3>"Filmadenis"</h3>
+                    <p><strong>Ocupação:</strong> Organizador e Mantenedor</p>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Background & Experiência</h3>
+                        <p>• Criador do Octógono Pump Natal (2012)</p>
+                        <p>• Dono do Canal - Filmadenis no YouTube</p>
+                        <p>• IPF (2014-2018) - Staff internacional, time Brasil</p>
+                        <p>• NEtao (2017-2025) - Jogador e organizador</p>
+                        <p>• Idealizador do Campeonato de Times (2016, 2018)</p>
+                        <p>• Idealizador do Patas de Ouro (2015, 2025)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Outros Eventos & Papéis</h3>
+                        <p>• Onlinezando (2017-2018) - Representante Natal</p>
+                        <p>• B1g One (2018-2024) - Organizador Internacional</p>
+                        <p>• Supporter Região NE (2012)</p>
+                        <p>• Membro da LBPIU</p>
+                        <p>• Apoio em discussões sobre formatos de torneios</p>
+                        <p>• Um dos maiores acervos de vídeos desde 2011</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Dini -->
+        <div class="slide" id="slide-4">
+            <div class="organizer-slide">
+                <div class="organizer-header">
+                    <img src="../imagens/Dini.jpeg" alt="Laura Pataro">
+                    <h2>Laura Pataro</h2>
+                    <h3>"Dini"</h3>
+                    <p><strong>Ocupação:</strong> Comunicação (design, instagram, site, lives), gestão, e ocasionalmente técnica</p>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Background & Conquistas</h3>
+                        <p>• Pumper desde 2002 com 10 títulos nacionais</p>
+                        <p>• Jogou em 2 WPF e 3 Big Ones</p>
+                        <p>• Co-fundadora, gestora e designer da LBPIU e do CBPIU</p>
+                        <p>• Dirige a PumpBH desde 2023</p>
+                        <p>• Experiência em lives: LBPIU "Em Casa", torneios online</p>
+                        <p>• Principais títulos: SP (2005), BH (2008, 2011), SBC (2009)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Eventos organizados</h3>
+                        <p>• Semana Santa (vários anos)</p>
+                        <p>• BRPF 2015 e 2024</p>
+                        <p>• Final LBPIU 2018 e 2019</p>
+                        <p>• Especial XX e Aberto LBPIU 2020</p>
+                        <p>• Liga Online 2021 e 2022</p>
+                        <p>• Transmissões de torneios e rachas em tempo real</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Bru -->
+        <div class="slide" id="slide-5">
+            <div class="organizer-slide">
+                <div class="organizer-header">
+                    <img src="../imagens/Brwnna.jpeg" alt="Bruna Rodrigues">
+                    <h2>Bruna Rodrigues</h2>
+                    <h3>"Bru"</h3>
+                    <p><strong>Ocupação:</strong> Organizadora</p>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Eventos principais</h3>
+                        <p>• Criadora e organizadora do Empowerful Girls (2025)</p>
+                        <p>• Representante do Pump Recife (desde 2022)</p>
+                        <p>• Organizadora responsável: Next Stage (2024)</p>
+                        <p>• Organizadora responsável: Hardzone (2017)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Eventos suporte</h3>
+                        <p>• CBPIU (2024 e 2025)</p>
+                        <p>  Responsável por listas de músicas</p>
+                        <p>• NEtão (2023~2025)</p>
+                        <p>  Responsável por listas de músicas</p>
+                        <p>• Patas de Ouro (2025)</p>
+                        <p>• Onlinezando (2017)</p>
+                        <p>  Parte técnica</p>
+                        <p>• Pump Jampa (2016~2018)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão de navegação -->
+        <button class="next-button" onclick="nextSlide()">
+            <img src="../imagens/pink arrow.png" alt="Próximo">
+        </button>
+    </div>
+
+    <script>
+        // Array para armazenar os slides
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        // Função para avançar para o próximo slide
+        function nextSlide() {
+            // Remover classe active do slide atual
+            slides[currentSlide].classList.remove('active');
+            
+            // Avançar para o próximo slide ou voltar para o primeiro
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Adicionar classe active ao novo slide atual
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Permitir navegação com tecla de seta direita
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+    </script>
+</body>
+</html>
