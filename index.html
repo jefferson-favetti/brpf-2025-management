@@ -15,8 +15,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: url('imagens/fundo-todo.png') no-repeat center center fixed;
             background-size: cover;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -26,9 +27,11 @@
 
         .slide-container {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-bottom: 60px;
         }
 
         .slide {
@@ -40,17 +43,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center; /* Center all slides vertically */
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
             padding: 20px;
             overflow-y: auto;
             padding-bottom: 100px; /* Extra padding at bottom to ensure content isn't hidden behind navigation buttons */
-        }
-        
-        /* Special styling for the first slide to keep it centered */
-        #slide-1 {
-            justify-content: center;
         }
 
         .slide.active {
@@ -157,7 +155,7 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            z-index: 10;
+            z-index: 100;
             transition: transform 0.3s ease;
         }
 
@@ -240,6 +238,14 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                overflow-y: auto !important; /* Force vertical scrolling */
+            }
+            
+            .slide-container {
+                overflow-y: auto !important; /* Force vertical scrolling */
+            }
+            
             .slide-content img {
                 max-height: 50vh;
             }
@@ -250,6 +256,7 @@
 
             .next-button, .prev-button {
                 bottom: 20px;
+                z-index: 100; /* Ensure buttons are above content */
             }
 
             .next-button {
@@ -265,11 +272,54 @@
             }
             
             .slide {
-                padding-bottom: 80px; /* Smaller padding for mobile */
+                height: auto; /* Allow slide to expand based on content */
+                min-height: 100vh; /* Minimum height is viewport height */
+                padding-bottom: 100px; /* Increased padding for mobile to prevent content from being hidden behind buttons */
+                justify-content: center; /* Keep all slides centered on mobile */
+                padding-top: 40px; /* Add some top padding for mobile */
+                overflow-y: visible; /* Allow content to flow and be scrollable */
             }
             
             .info-card {
                 width: 100%; /* Full width on mobile */
+            }
+            
+            /* Adjust content-slide for better mobile display while keeping centered */
+            .content-slide {
+                margin-top: 0; /* Remove top margin to help with centering */
+                height: auto; /* Allow content to determine height */
+                max-height: none; /* Remove max-height limitation */
+                padding-bottom: 60px; /* Extra padding at the bottom */
+            }
+        }
+        
+        /* Extra small screens like iPhone SE */
+        @media (max-width: 375px) {
+            .next-button img, .prev-button img {
+                width: 40px; /* Smaller buttons for very small screens */
+            }
+            
+            .next-button, .prev-button {
+                bottom: 10px; /* Position buttons closer to bottom */
+                padding: 5px; /* Less padding */
+                background-color: transparent;
+                border-radius: 50%; /* Circular background */
+            }
+            
+            .next-button {
+                right: 10px; /* Position closer to edge */
+            }
+            
+            .prev-button {
+                left: 10px; /* Position closer to edge */
+            }
+            
+            .slide {
+                padding-bottom: 120px; /* Increased padding for very small screens */
+            }
+            
+            .content-slide {
+                padding-bottom: 60px; /* Extra padding at bottom of content */
             }
         }
     </style>
