@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRPF 2025 - Brasil Pump Festival - Apresentação Completa</title>
+    <title>BRPF 2025 - Proposta para Ksquare</title>
     <style>
         * {
             margin: 0;
@@ -13,2145 +13,602 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-size: 3.5em;
-            color: #4a5568;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .header .subtitle {
-            font-size: 1.5em;
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-
-        .header .date-info {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .nav-tabs {
+            background: url('../imagens/fundo-todo.png') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            overflow: hidden;
+            color: #fff;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
         }
 
-        .nav-tab {
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            color: #4a5568;
-        }
-
-        .nav-tab:hover, .nav-tab.active {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .content-section {
-            display: none;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            color: #4a5568;
-            margin-bottom: 30px;
-            text-align: center;
+        .slide-container {
+            width: 100%;
+            height: 100vh;
             position: relative;
+            overflow: hidden;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            margin: 15px auto;
-            border-radius: 2px;
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            padding: 20px;
+            overflow-y: auto;
+            padding-bottom: 100px; /* Extra padding at bottom to ensure content isn't hidden behind navigation buttons */
+        }
+        
+        /* Special styling for the first slide to keep it centered */
+        #slide-1 {
+            justify-content: center;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide-content {
+            max-width: 80%;
+            max-height: 80%;
+            text-align: center;
+        }
+
+        .slide-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        .content-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .content-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border-radius: 15px;
+            width: 100%;
+        }
+
+        .content-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .content-header h3 {
+            color: #f0f0f0;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
         }
 
         .info-card {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
             border-radius: 15px;
-            padding: 30px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 10px);
+            min-width: 300px;
         }
 
         .info-card h3 {
-            color: #4a5568;
             font-size: 1.5em;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: #fff;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
         }
 
-        .info-card .icon {
-            font-size: 1.5em;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin: 30px 0;
-            width: 45%;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 55%;
-            text-align: left;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .timeline-date {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
+        .info-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
             margin-bottom: 10px;
+            color: #fff;
         }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .info-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
         }
 
-        .comparison-table th {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.2em;
+        .info-card li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 5px;
+            color: #fff;
         }
 
-        .comparison-table td {
-            padding: 15px 20px;
-            text-align: center;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .comparison-table tr:nth-child(even) {
-            background: #f7fafc;
-        }
-
-        .winner {
-            background: #c6f6d5 !important;
+        .highlight {
+            color: #ff69b4;
             font-weight: bold;
-            color: #22543d;
         }
 
-        .financial-chart {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .chart-bar {
-            display: flex;
-            align-items: center;
-            margin: 15px 0;
-        }
-
-        .chart-label {
-            width: 150px;
-            font-weight: bold;
-            color: #4a5568;
-        }
-
-        .chart-value {
-            flex: 1;
-            height: 30px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            color: white;
-            font-weight: bold;
-            margin: 0 15px;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .category-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
+        .next-button, .prev-button {
+            position: fixed;
+            bottom: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
             transition: transform 0.3s ease;
         }
 
-        .category-card:hover {
-            transform: scale(1.05);
+        .next-button {
+            right: 40px;
         }
 
-        .category-card h4 {
-            font-size: 1.3em;
-            margin-bottom: 15px;
+        .prev-button {
+            left: 40px;
         }
 
-        .status-indicator {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
-            margin: 5px;
+        .next-button:hover, .prev-button:hover {
+            transform: scale(1.1);
         }
 
-        .status-critical {
-            background: #fed7d7;
-            color: #c53030;
+        .next-button img, .prev-button img {
+            width: 80px;
+            height: auto;
         }
 
-        .status-warning {
-            background: #fefcbf;
-            color: #d69e2e;
+        .prev-button img {
+            transform: rotate(180deg);
         }
 
-        .status-success {
-            background: #c6f6d5;
-            color: #22543d;
-        }
-
-        .risk-matrix {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .risk-card {
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .risk-low {
-            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
-            color: #22543d;
-        }
-
-        .risk-medium {
-            background: linear-gradient(135deg, #fefcbf, #faf089);
-            color: #744210;
-        }
-
-        .risk-high {
-            background: linear-gradient(135deg, #fed7d7, #feb2b2);
-            color: #c53030;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .team-card {
-            background: white;
+        .full-width-card {
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #667eea;
+            width: 100%;
+            margin-bottom: 20px;
         }
 
-        .progress-bar {
-            background: #e2e8f0;
-            border-radius: 10px;
-            height: 20px;
-            margin: 10px 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 10px;
-            transition: width 0.3s ease;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .highlight-box h3 {
-            font-size: 2em;
+        .full-width-card h3 {
+            font-size: 1.5em;
             margin-bottom: 15px;
+            color: #fff;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .full-width-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 105, 180, 0.1);
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
+            .slide-content img {
+                max-height: 50vh;
             }
-            
-            .timeline::before {
+
+            .content-header {
+                padding: 15px;
+            }
+
+            .next-button, .prev-button {
+                bottom: 20px;
+            }
+
+            .next-button {
+                right: 20px;
+            }
+
+            .prev-button {
                 left: 20px;
             }
-            
-            .timeline-item {
-                width: calc(100% - 40px);
-                left: 40px !important;
-                text-align: left !important;
+
+            .next-button img, .prev-button img {
+                width: 60px;
             }
             
-            .info-grid {
-                grid-template-columns: 1fr;
+            .slide {
+                padding-bottom: 80px; /* Smaller padding for mobile */
             }
             
-            .nav-tabs {
-                flex-direction: column;
-                align-items: center;
+            .info-card {
+                width: 100%; /* Full width on mobile */
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎮 BRPF 2025</h1>
-            <div class="subtitle">Brasil Pump It Up Festival - Comemorando 20 Anos de História</div>
-            <div class="date-info">📅 22-23 de Novembro 2025 (Data Preferencial) | 📍 São Paulo - SP</div>
+    <div class="slide-container">
+        <!-- Slide 1: Primeira página com brpf25-01.png -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-content">
+                <img src="../imagens/brpf25-01.png" alt="BRPF 2025">
+                <h2 style="margin-top: 20px; font-size: 2em;">Proposta para Ksquare</h2>
+                <p style="font-size: 1.2em; margin-top: 10px;">22-23 de Novembro de 2025</p>
+            </div>
         </div>
 
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showSection('overview')">📋 Visão Geral</button>
-            <button class="nav-tab" onclick="showSection('timeline')">📅 Cronograma Geral</button>
-            <button class="nav-tab" onclick="showSection('freestyle-timeline')">🎨 Cronograma FS</button>
-            <button class="nav-tab" onclick="showSection('categories')">🏆 Categorias</button>
-            <button class="nav-tab" onclick="showSection('locations')">🏢 Locais</button>
-            <button class="nav-tab" onclick="showSection('budget')">💰 Orçamento</button>
-            <button class="nav-tab" onclick="showSection('team')">👥 Equipe</button>
-            <button class="nav-tab" onclick="showSection('social')">📱 Social Media</button>
-            <button class="nav-tab" onclick="showSection('audiovisual')">🎬 Audiovisual</button>
-            <button class="nav-tab" onclick="showSection('risks')">⚠️ Riscos</button>
-        </div>
-
-        <!-- VISÃO GERAL -->
-        <div id="overview" class="content-section active">
-            <h2 class="section-title">📋 Visão Geral do Evento</h2>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">🎯</span> Objetivo</h3>
-                    <p>Celebrar os 20 anos de história do BRPF com um evento especial que fortaleça a comunidade brasileira de Pump it Up e mantenha viva a tradição competitiva nacional.</p>
+        <!-- Slide 2: Sobre o BRPF -->
+        <div class="slide" id="slide-2">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>O que é o BRPF?</h2>
+                    <h3>Brasil Pump Festival - 17ª Edição</h3>
                 </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">👥</span> Público Esperado</h3>
-                    <p><strong>Competidores:</strong> 50-100+ pessoas<br>
-                    <strong>Espectadores:</strong> 50+ pessoas<br>
-                    <strong>Total:</strong> 100-150 pessoas</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">⏱️</span> Duração</h3>
-                    <p><strong>Login:</strong> 1 dia (8-9 horas)<br>
-                    <strong>Ksquare:</strong> 2 dias (12-13 horas)<br>
-                    <strong>Formato:</strong> Fim de semana</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🎮</span> Equipamentos</h3>
-                    <p><strong>Máquinas:</strong> 2 Pump it Up<br>
-                    <strong>HDs:</strong> Phoenix (versão atual)<br>
-                    <strong>Transmissão:</strong> YouTube e Twitch</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">💰</span> Modelo Financeiro</h3>
-                    <p><strong>Receita Principal:</strong> Inscrições dos participantes<br>
-                    <strong>Receita Secundária:</strong> Venda de produtos<br>
-                    <strong>Valor:</strong> R$ 80-120 por inscrição<br>
-                    <strong>Meta:</strong> 50-100 participantes</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">📍</span> Status Atual</h3>
-                    <p><strong>Fase:</strong> Negociação de Local<br>
-                    <strong>Decisão Crítica:</strong> 05 de Setembro<br>
-                    <strong>Progresso:</strong> 75% do planejamento</p>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h3>🚨 PRAZO CRÍTICO</h3>
-                <p>Negociação com Ksquare até <strong>05 de setembro de 2025</strong></p>
-                <p>Anúncio oficial da data e local em <strong>12 de setembro de 2025</strong></p>
-            </div>
-
-            <div class="highlight-box">
-                <h3>📅 DATAS POSSÍVEIS PARA NEGOCIAÇÃO</h3>
-                <div style="text-align: left; margin-top: 20px;">
-                    <h4 style="color: #90EE90; margin-bottom: 10px;">🥇 Data Perfeita (Melhor Opção):</h4>
-                    <p style="margin-bottom: 5px;"><strong>22 e 23 de novembro</strong></p>
-                    <p style="font-size: 0.9em; margin-bottom: 20px;">✅ Boa devido ao feriado de 20 de novembro em alguns estados</p>
-                    
-                    <h4 style="color: #FFD700; margin-bottom: 10px;">🥈 Boas Datas (Plano B):</h4>
-                    <p style="margin-bottom: 5px;"><strong>29 e 30 de novembro</strong></p>
-                    <p style="margin-bottom: 20px;"><strong>6 e 7 de dezembro</strong></p>
-                    
-                    <h4 style="color: #FFA500; margin-bottom: 10px;">🥉 Últimas Opções Viáveis (Plano C):</h4>
-                    <p style="margin-bottom: 5px;"><strong>15 e 16 de novembro</strong> <span style="color: #FF6B6B; font-size: 0.8em;">(⚠️ Datas do ENEM)</span></p>
-                    <p style="margin-bottom: 5px;"><strong>13 e 14 de dezembro</strong></p>
-                </div>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">🎯</span> Estratégia de Negociação</h3>
-                    <p><strong>Prioridade 1:</strong> 22-23 de novembro (aproveitando feriado)<br>
-                    <strong>Flexibilidade:</strong> Outras datas conforme disponibilidade<br>
-                    <strong>Limite:</strong> Entre 15/11 e 14/12</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🏆</span> Categorias Base</h3>
-                    <p><strong>Confirmadas:</strong> 5 categorias<br>
-                    <strong>Em discussão:</strong> 2-4 adicionais<br>
-                    <strong>Depende:</strong> Local escolhido</p>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>História e Tradição</h3>
+                        <p>• <span class="highlight">20 anos de história</span> - Comemorando duas décadas desde a primeira edição</p>
+                        <p>• <span class="highlight">Maior campeonato nacional</span> de Pump It Up do Brasil</p>
+                        <p>• Evento que reúne os melhores jogadores do país</p>
+                        <p>• Tradição de excelência e competitividade</p>
+                        <p>• Organizado por profissionais com vasta experiência em eventos de e-sports</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Impacto e Alcance</h3>
+                        <p>• <span class="highlight">100-150 participantes</span> esperados</p>
+                        <p>• <span class="highlight">Transmissão ao vivo</span> para todo o Brasil</p>
+                        <p>• Canais oficiais com milhares de seguidores</p>
+                        <p>• Cobertura de mídia especializada</p>
+                        <p>• Evento referência na comunidade de jogos de dança</p>
+                        <p>• Participantes de <span class="highlight">todo o território nacional</span></p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- CRONOGRAMA -->
-        <div id="timeline" class="content-section">
-            <h2 class="section-title">📅 Cronograma Detalhado</h2>
-            
-            <div class="highlight-box">
-                <h3>⚠️ MARCOS CRÍTICOS ATUALIZADOS</h3>
-                <p><strong>18/08:</strong> Início negociação Ksquare</p>
-                <p><strong>20/08:</strong> Primeiro conteúdo redes sociais</p>
-                <p><strong>25/08:</strong> Transmissão CBPIU</p>
-                <p><strong>05/09:</strong> DEADLINE KSQUARE</p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">AGOSTO 2025</div>
-                        <h4>🚨 Fase Crítica - Planejamento Base</h4>
+        <!-- Slide 3: Nossa Missão -->
+        <div class="slide" id="slide-3">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Nossa Missão</h2>
+                    <h3>Por que o BRPF é importante?</h3>
+                </div>
+                <div class="full-width-card">
+                    <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">
+                        <span class="highlight">"Promover a cultura dos jogos de ritmo no Brasil, unindo competitividade, 
+                        arte e comunidade em um evento de nível nacional."</span>
+                    </p>
+                </div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Valores Fundamentais</h3>
                         <ul>
-                            <li><strong>✅ 15/08:</strong> Definição do orçamento total (CONCLUÍDO)</li>
-                            <li><strong>18/08:</strong> <span class="status-critical">INÍCIO negociação com Ksquare (PzOX)</span></li>
-                            <li><strong>20/08:</strong> Primeiro conteúdo: Logo BRPF 2025 (Alice)</li>
-                            <li><strong>21/08:</strong> Confirmação da data transmissão CBPIU</li>
-                            <li><strong>22/08:</strong> Continuação das negociações com Ksquare</li>
-                            <li><strong>✅ 24/08:</strong> Definição dos revisores das regras FS (CONCLUÍDO)</li>
-                            <li><strong>25/08:</strong> <span class="status-critical">TRANSMISSÃO CBPIU + Conclusão documento FS Fase 1 (Beffy)</span></li>
-                            <li><strong>26/08:</strong> Follow-up 1 com PzOX + Envio documento FS para revisores</li>
-                            <li><strong>27/08:</strong> Consolidação feedback FS + início Fase 2</li>
-                            <li><strong>28/08:</strong> Segundo conteúdo: Carrossel organizadores (Alice) + Início artes FS</li>
-                            <li><strong>29/08:</strong> Conclusão documento FS Fase 2 + início texto divulgação</li>
-                            <li><strong>30-31/08:</strong> Revisão final regras FS (2 dias) + finalização materiais</li>
+                            <li><span class="highlight">Excelência técnica</span> - Promover o mais alto nível de jogo</li>
+                            <li><span class="highlight">Inclusão</span> - Categorias para todos os níveis e gêneros</li>
+                            <li><span class="highlight">Comunidade</span> - Fortalecer laços entre jogadores</li>
+                            <li><span class="highlight">Inovação</span> - Incorporar novas tecnologias e formatos</li>
+                            <li><span class="highlight">Espetáculo</span> - Criar uma experiência memorável</li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">SETEMBRO 2025</div>
-                        <h4>📋 Estruturação e Decisão Final</h4>
+                    <div class="info-card">
+                        <h3>Impacto Cultural</h3>
                         <ul>
-                            <li><strong>01/09:</strong> <span class="status-success">PUBLICAÇÃO REGRAS FREESTYLE (Alice + LBPIU)</span></li>
-                            <li><strong>01/09:</strong> Follow-up 2 com PzOX (segunda reunião)</li>
-                            <li><strong>03/09:</strong> Terceiro conteúdo: Posts proximidade anúncio (Alice)</li>
-                            <li><strong>05/09:</strong> <span class="status-critical">DEADLINE KSQUARE - Decisão final do local</span></li>
-                            <li><strong>05/09:</strong> Plano B: Início negociação Login (se necessário)</li>
-                            <li><strong>08/09:</strong> Contratação da equipe de som (se Ksquare)</li>
-                            <li><strong>09/09:</strong> Posts divulgação live revelação (Alice)</li>
-                            <li><strong>10/09:</strong> Contratação do transporte das máquinas</li>
-                            <li><strong>12/09:</strong> <span class="status-success">ANÚNCIO OFICIAL - Live revelação data/local</span></li>
-                            <li><strong>15/09:</strong> Criação do material de divulgação inicial</li>
-                            <li><strong>22/09:</strong> Lançamento da campanha de divulgação</li>
-                            <li><strong>26/09:</strong> Definição dos valores de inscrição</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">OUTUBRO 2025</div>
-                        <h4>🎯 Execução</h4>
-                        <ul>
-                            <li><strong>06/10:</strong> <span class="status-success">ABERTURA DAS INSCRIÇÕES</span></li>
-                            <li>Produção de materiais de marketing</li>
-                            <li>Testes de equipamentos</li>
-                            <li>Intensificação da divulgação</li>
-                            <li>Contratação de fotógrafo e cinegrafista</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">NOVEMBRO 2025</div>
-                        <h4>🏁 Finalização e Evento</h4>
-                        <ul>
-                            <li><strong>03/11:</strong> Fechamento das inscrições</li>
-                            <li><strong>05/11:</strong> Sorteio das chaves/brackets</li>
-                            <li><strong>12/11:</strong> Setup completo no local</li>
-                            <li><strong>22-23/11:</strong> <span class="status-success">REALIZAÇÃO DO EVENTO</span></li>
+                            <li>Preservação de uma <span class="highlight">tradição de 20 anos</span></li>
+                            <li>Incentivo à <span class="highlight">atividade física através dos jogos</span></li>
+                            <li>Promoção da <span class="highlight">cultura e-sports brasileira</span></li>
+                            <li>Criação de <span class="highlight">rede nacional de jogadores</span></li>
+                            <li>Inspiração para <span class="highlight">novos talentos</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- CRONOGRAMA FREESTYLE -->
-        <div id="freestyle-timeline" class="content-section">
-            <h2 class="section-title">🎨 Cronograma Detalhado - Regras Freestyle</h2>
-            
-            <div class="highlight-box">
-                <h3>🚨 CRONOGRAMA INTENSIVO - 7 DIAS</h3>
-                <p><strong>Período:</strong> 25/08 a 01/09/2025</p>
-                <p><strong>Objetivo:</strong> Publicação das regras oficiais da categoria Freestyle</p>
-                <p><strong>Responsável:</strong> Beffy + 5 Revisores + Alice (Social Media)</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">👤</span> Equipe Freestyle</h3>
-                    <p><strong>Responsável:</strong> Beffy<br>
-                    <strong>Revisores:</strong> Dini, Nariz, Nina, Faber, Biz<br>
-                    <strong>Social Media:</strong> Alice<br>
-                    <strong>Designer:</strong> LBPIU</p>
+        <!-- Slide 4: Por que o Ksquare? -->
+        <div class="slide" id="slide-4">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Por que o Ksquare?</h2>
+                    <h3>A parceria ideal para o BRPF 2025</h3>
                 </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">📋</span> Processo</h3>
-                    <p><strong>Fase 1:</strong> Documento base (25/08)<br>
-                    <strong>Revisão 1:</strong> Feedback dos revisores (26-27/08)<br>
-                    <strong>Fase 2:</strong> Documento final (29/08)<br>
-                    <strong>Publicação:</strong> Redes sociais (01/09)</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🎯</span> Objetivos</h3>
-                    <p><strong>Categoria:</strong> Criatividade e performance artística<br>
-                    <strong>Duração:</strong> 8 minutos por apresentação<br>
-                    <strong>Avaliação:</strong> Júri especializado<br>
-                    <strong>Inovação:</strong> Primeira categoria com regras publicadas</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">📊</span> Status Atual</h3>
-                    <p><strong>Discovery:</strong> ✅ Concluída (21/08)<br>
-                    <strong>Objetivos:</strong> ✅ Definidos (21/08)<br>
-                    <strong>Revisores:</strong> ✅ Definidos (24/08)<br>
-                    <strong>Documento:</strong> 🔄 Em andamento</p>
-                </div>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">25 DE AGOSTO</div>
-                        <h4>📝 Conclusão Documento Fase 1</h4>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Vantagens do Ksquare</h3>
                         <ul>
-                            <li><strong>Responsável:</strong> Beffy</li>
-                            <li><strong>Entrega:</strong> Documento base com regras preliminares</li>
-                            <li><strong>Conteúdo:</strong> Critérios de avaliação, formato da competição</li>
-                            <li><strong>Paralelo:</strong> Transmissão CBPIU</li>
-                            <li><strong>Status:</strong> <span class="status-critical">CRÍTICO - Prazo hoje</span></li>
+                            <li><span class="highlight">Infraestrutura</span> - Sistema de som necessário para o evento</li>
+                            <li><span class="highlight">Espaço amplo</span> - Capacidade para 100+ participantes</li>
+                            <li><span class="highlight">Localização privilegiada</span> - Fácil acesso</li>
+                            <li><span class="highlight">Ambiente diferenciado</span> - Rooftop com visual único</li>
+                            <li><span class="highlight">Prestígio</span> - Alinhamento com a qualidade e importância do evento</li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">26 DE AGOSTO</div>
-                        <h4>📤 Envio para Revisores</h4>
+                    <div class="info-card">
+                        <h3>Benefícios Mútuos</h3>
                         <ul>
-                            <li><strong>Ação:</strong> Distribuição do documento Fase 1</li>
-                            <li><strong>Revisores:</strong> Dini, Nariz, Nina, Faber, Biz</li>
-                            <li><strong>Prazo:</strong> 24 horas para análise</li>
-                            <li><strong>Foco:</strong> Identificar falhas e melhorias</li>
+                            <li><span class="highlight">Visibilidade</span> - Exposição da marca durante transmissão</li>
+                            <li><span class="highlight">Público qualificado</span> - Jogadores e espectadores</li>
+                            <li><span class="highlight">Conteúdo exclusivo</span> - Material para redes sociais</li>
+                            <li><span class="highlight">Associação positiva</span> - Evento tradicional e respeitado</li>
+                            <li><span class="highlight">Potencial de crescimento</span> - Base para edições futuras</li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">27 DE AGOSTO</div>
-                        <h4>🔄 Consolidação do Feedback</h4>
-                        <ul>
-                            <li><strong>Responsável:</strong> Beffy</li>
-                            <li><strong>Ação:</strong> Análise e consolidação das sugestões</li>
-                            <li><strong>Resultado:</strong> Lista de melhorias prioritárias</li>
-                            <li><strong>Início:</strong> Preparação para Fase 2</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">28 DE AGOSTO</div>
-                        <h4>🎨 Início dos Materiais Visuais</h4>
-                        <ul>
-                            <li><strong>Designer:</strong> LBPIU</li>
-                            <li><strong>Conteúdo:</strong> Artes para divulgação das regras FS</li>
-                            <li><strong>Paralelo:</strong> Carrossel organizadores (Alice)</li>
-                            <li><strong>Objetivo:</strong> Preparar material para publicação</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">29 DE AGOSTO</div>
-                        <h4>📋 Conclusão Documento Fase 2</h4>
-                        <ul>
-                            <li><strong>Responsável:</strong> Beffy</li>
-                            <li><strong>Entrega:</strong> Versão final do documento</li>
-                            <li><strong>Paralelo:</strong> Alice inicia criação do texto de divulgação</li>
-                            <li><strong>Status:</strong> <span class="status-warning">Versão para aprovação final</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">30-31 DE AGOSTO</div>
-                        <h4>✅ Revisão Final (2 dias)</h4>
-                        <ul>
-                            <li><strong>Processo:</strong> Revisão da versão corrigida</li>
-                            <li><strong>Critério:</strong> Aprovação se nenhuma melhoria for apontada</li>
-                            <li><strong>Paralelo:</strong> Finalização das artes e textos</li>
-                            <li><strong>Resultado:</strong> Documento aprovado para publicação</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">01 DE SETEMBRO</div>
-                        <h4>🚀 PUBLICAÇÃO OFICIAL</h4>
-                        <ul>
-                            <li><strong>Responsáveis:</strong> Alice + LBPIU</li>
-                            <li><strong>Plataformas:</strong> Todas as redes sociais LBPIU</li>
-                            <li><strong>Conteúdo:</strong> Documento + artes + texto promocional</li>
-                            <li><strong>Marco:</strong> <span class="status-success">Primeira categoria com regras publicadas</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="risk-matrix">
-                <div class="risk-card risk-high">
-                    <h3>🚨 RISCOS CRÍTICOS</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Atraso Fase 1:</strong> Impacta todo cronograma</li>
-                        <li><strong>Revisores indisponíveis:</strong> Pode atrasar feedback</li>
-                        <li><strong>Mudanças grandes:</strong> Pode exigir Fase 3</li>
-                        <li><strong>Problemas técnicos:</strong> Falha na publicação</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card risk-medium">
-                    <h3>⚠️ PLANOS DE CONTINGÊNCIA</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Atraso 1 dia:</strong> Publicação em 02/09</li>
-                        <li><strong>Revisor ausente:</strong> Continuar com 4 revisores</li>
-                        <li><strong>Mudanças menores:</strong> Correções pós-publicação</li>
-                        <li><strong>Falha técnica:</strong> Publicação manual</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card risk-low">
-                    <h3>✅ FATORES DE SUCESSO</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Equipe experiente:</strong> Beffy + revisores qualificados</li>
-                        <li><strong>Processo estruturado:</strong> 2 fases + revisão</li>
-                        <li><strong>Apoio LBPIU:</strong> Designer e plataformas</li>
-                        <li><strong>Cronograma realista:</strong> 7 dias bem distribuídos</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card risk-success">
-                    <h3>🎯 INDICADORES DE QUALIDADE</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Documento claro:</strong> Regras compreensíveis</li>
-                        <li><strong>Critérios objetivos:</strong> Avaliação justa</li>
-                        <li><strong>Aprovação unânime:</strong> Todos os revisores</li>
-                        <li><strong>Engajamento:</strong> Boa recepção da comunidade</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="financial-chart">
-                <h3 style="margin-bottom: 20px;">📊 Progresso do Cronograma FS</h3>
-                
-                <div class="chart-bar">
-                    <div class="chart-label">Discovery</div>
-                    <div class="chart-value" style="width: 100%; background: #22543d;">✅ Concluída (21/08)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Objetivos</div>
-                    <div class="chart-value" style="width: 100%; background: #22543d;">✅ Definidos (21/08)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Responsável</div>
-                    <div class="chart-value" style="width: 100%; background: #22543d;">✅ Beffy (14/08)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Revisores</div>
-                    <div class="chart-value" style="width: 100%; background: #22543d;">✅ 5 Definidos (24/08)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Documento Fase 1</div>
-                    <div class="chart-value" style="width: 80%; background: #d69e2e;">🔄 Em andamento (25/08)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Revisão Fase 1</div>
-                    <div class="chart-value" style="width: 0%; background: #e2e8f0; color: #4a5568;">⏳ Aguardando (26-27/08)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Documento Fase 2</div>
-                    <div class="chart-value" style="width: 0%; background: #e2e8f0; color: #4a5568;">⏳ Aguardando (29/08)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Publicação</div>
-                    <div class="chart-value" style="width: 0%; background: #e2e8f0; color: #4a5568;">🎯 Meta (01/09)</div>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h3>🏆 IMPACTO ESTRATÉGICO</h3>
-                <p><strong>Primeira categoria</strong> com regras oficiais publicadas do BRPF 2025</p>
-                <p><strong>Marco importante</strong> para o cronograma geral do projeto</p>
-                <p><strong>Demonstração de capacidade</strong> da equipe organizadora</p>
-                <p><strong>Geração de conteúdo</strong> para as redes sociais do evento</p>
-            </div>
-
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Fase</th>
-                        <th>Responsável</th>
-                        <th>Prazo</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Discovery</strong></td>
-                        <td>Beffy + Equipe</td>
-                        <td>14-21/08</td>
-                        <td class="winner">✅ Concluída</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Objetivos</strong></td>
-                        <td>Beffy</td>
-                        <td>21/08</td>
-                        <td class="winner">✅ Definidos</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Revisores</strong></td>
-                        <td>Organização</td>
-                        <td>24/08</td>
-                        <td class="winner">✅ 5 Confirmados</td>
-                    </tr>
-                    <tr style="background: #fefcbf;">
-                        <td><strong>Documento Fase 1</strong></td>
-                        <td>Beffy</td>
-                        <td>25/08</td>
-                        <td style="background: #fefcbf; color: #d69e2e;">🔄 Em andamento</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Revisão Fase 1</strong></td>
-                        <td>5 Revisores</td>
-                        <td>26-27/08</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Documento Fase 2</strong></td>
-                        <td>Beffy</td>
-                        <td>29/08</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Revisão Final</strong></td>
-                        <td>5 Revisores</td>
-                        <td>30-31/08</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr style="background: #c6f6d5;">
-                        <td><strong>Publicação</strong></td>
-                        <td>Alice + LBPIU</td>
-                        <td>01/09</td>
-                        <td class="winner">🎯 Meta Final</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- CATEGORIAS -->
-        <div id="categories" class="content-section">
-            <h2 class="section-title">🏆 Categorias do Campeonato</h2>
-            
-            <h3 style="color: #4a5568; margin-bottom: 20px;">✅ Categorias Confirmadas</h3>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <h4>🥇 Speed Pró Masculino</h4>
-                    <p>Categoria principal masculina para jogadores experientes</p>
-                    <p><strong>Modo:</strong> Single → Double</p>
-                    <p><strong>Dificuldade:</strong> S15-S23+</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>🥇 Speed Pró Feminino</h4>
-                    <p>Categoria principal feminina para jogadoras experientes</p>
-                    <p><strong>Modo:</strong> Single → Double</p>
-                    <p><strong>Dificuldade:</strong> S15-S23+</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>⚖️ Speed Sem Barra</h4>
-                    <p>Modalidade onde apoiar-se nas barras é proibido</p>
-                    <p><strong>Modo:</strong> Single → Double</p>
-                    <p><strong>Dificuldade:</strong> S15-S22 / D20-D22 (a confirmar)</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>🤝 Co-op</h4>
-                    <p>Duplas jogando coordenadamente na mesma máquina</p>
-                    <p><strong>Modo:</strong> Cooperativo</p>
-                    <p><strong>Foco:</strong> Sincronia e coordenação</p>
-                </div>
-                
-                <div class="category-card">
-                        <h4>🎨 Freestyle</h4>
-                        <p>Categoria focada em criatividade e performance artística</p>
-                        <p><strong>Tempo:</strong> 8 minutos por apresentação</p>
-                        <p><strong>Avaliação:</strong> Júri especializado</p>
-                        <p><strong>Responsável:</strong> Beffy</p>
-                        <p><strong>Revisores:</strong> Dini, Nariz, Nina, Faber, Biz</p>
-                        <p><strong>Status:</strong> <span class="status-warning">Documento Fase 1 em andamento</span></p>
-                        <p><strong>Publicação:</strong> 01/09/2025</p>
-                </div>
-            </div>
-
-            <h3 style="color: #4a5568; margin: 40px 0 20px 0;">🤔 Categorias em Discussão</h3>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">🟢</span> Speed Iniciante</h3>
-                    <p><strong>Perfil:</strong> Jogadores com pouca experiência<br>
-                    <strong>Dificuldade:</strong> S6-S12<br>
-                    <strong>Modo:</strong> Apenas Single</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🟡</span> Speed Intermediário</h3>
-                    <p><strong>Perfil:</strong> Experiência moderada<br>
-                    <strong>Dificuldade:</strong> S13-S16<br>
-                    <strong>Modo:</strong> Single + Double opcional</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🟠</span> Speed Avançado</h3>
-                    <p><strong>Perfil:</strong> Experientes não-profissionais<br>
-                    <strong>Dificuldade:</strong> S17-S20<br>
-                    <strong>Modo:</strong> Single → Double</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🔴</span> Speed Expert</h3>
-                    <p><strong>Perfil:</strong> Nível quase profissional<br>
-                    <strong>Dificuldade:</strong> S21-S23<br>
-                    <strong>Modo:</strong> Double prioritário</p>
-                </div>
-            </div>
-
-            <div class="financial-chart">
-                <h3 style="margin-bottom: 20px;">⏱️ Estimativa de Tempo por Cenário (2 músicas por fase)</h3>
-                
-                <h4 style="color: #667eea; margin: 20px 0 10px 0;">Login (Máximo 80 pessoas) - INVIÁVEL EM 1 DIA</h4>
-                <div class="chart-bar">
-                    <div class="chart-label">4 Categorias</div>
-                    <div class="chart-value" style="width: 100%;">12-13 horas (2 dias necessários)</div>
-                </div>
-                
-                <h4 style="color: #667eea; margin: 20px 0 10px 0;">Ksquare (100+ pessoas)</h4>
-                <div class="chart-bar">
-                    <div class="chart-label">5 Categorias</div>
-                    <div class="chart-value" style="width: 100%;">20-22 horas (2-3 dias necessários)</div>
                 </div>
             </div>
         </div>
 
-        <!-- LOCAIS -->
-        <div id="locations" class="content-section">
-            <h2 class="section-title">🏢 Análise Comparativa dos Locais</h2>
-            
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Critério</th>
-                        <th>🏬 Ksquare</th>
-                        <th>🎮 Login</th>
-                        <th>Vencedor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Custo Total</strong></td>
-                        <td>R$ 5.600 - R$ 7.500</td>
-                        <td>R$ 2.600 - R$ 4.500</td>
-                        <td class="winner">✅ Login</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Viabilidade Financeira</strong></td>
-                        <td>Viável (66+ pessoas)</td>
-                        <td>Altamente Viável (36+ pessoas)</td>
-                        <td class="winner">✅ Login</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Capacidade</strong></td>
-                        <td>100+ pessoas</td>
-                        <td>Máximo 80 pessoas</td>
-                        <td class="winner">✅ Ksquare</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Infraestrutura</strong></td>
-                        <td>Superior</td>
-                        <td>Adequada</td>
-                        <td class="winner">✅ Ksquare</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Risco Financeiro</strong></td>
-                        <td>Moderado</td>
-                        <td>Muito Baixo</td>
-                        <td class="winner">✅ Login</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="risk-matrix">
-                <div class="risk-card risk-low">
-                    <h3>🎮 LOGIN - Menor Risco</h3>
-                    <p><strong>Custo:</strong> R$ 0 de local</p>
-                    <p><strong>Ponto de Equilíbrio:</strong> 36 participantes</p>
-                    <p><strong>Prejuízo Máximo:</strong> R$ 550</p>
-                    <p><strong>Recomendado para:</strong> Evento comemorativo</p>
+        <!-- Slide 5: O Evento -->
+        <div class="slide" id="slide-5">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>O Evento</h2>
+                    <h3>Estrutura e Categorias</h3>
                 </div>
-                
-                <div class="risk-card risk-medium">
-                    <h3>🏬 KSQUARE - Maior Potencial</h3>
-                    <p><strong>Custo:</strong> R$ 2.900 de local</p>
-                    <p><strong>Ponto de Equilíbrio:</strong> 66 participantes</p>
-                    <p><strong>Prejuízo Máximo:</strong> R$ 1.550</p>
-                    <p><strong>Recomendado para:</strong> Crescimento futuro</p>
-                </div>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">✅</span> Vantagens Login</h3>
-                    <ul>
-                        <li>Custo zero de local</li>
-                        <li>Som fornecido gratuitamente</li>
-                        <li>Experiência em eventos similares</li>
-                        <li>Ambiente temático (gamer)</li>
-                        <li>Baixo risco financeiro</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">⚡</span> Vantagens Ksquare</h3>
-                    <ul>
-                        <li>Capacidade para 100+ pessoas</li>
-                        <li>Som profissional superior</li>
-                        <li>Localização premium (shopping)</li>
-                        <li>Maior prestígio do evento</li>
-                        <li>Potencial de crescimento</li>
-                    </ul>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Categorias Confirmadas</h3>
+                        <ul>
+                            <li><span class="highlight">Speed Pró Masculino</span> - Categoria principal masculina</li>
+                            <li><span class="highlight">Speed Pró Feminino</span> - Categoria principal feminina</li>
+                            <li><span class="highlight">Speed Sem Barra</span> - Categoria onde o uso da barra é proibido</li>
+                            <li><span class="highlight">Co-op</span> - Modo cooperativo em duplas</li>
+                            <li><span class="highlight">Freestyle</span> - Performance artística e criativa</li>
+                        </ul>
+                        <p style="margin-top: 15px;">Possibilidade de incluir categorias adicionais para iniciantes e intermediários, dependendo do espaço.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Estrutura do Evento</h3>
+                        <ul>
+                            <li><span class="highlight">Duração:</span> 2 dias (fim de semana)</li>
+                            <li><span class="highlight">Data preferencial:</span> 22-23 de novembro</li>
+                            <li><span class="highlight">Formato:</span> Eliminação progressiva</li>
+                            <li><span class="highlight">Transmissão ao vivo:</span> YouTube e Twitch</li>
+                            <li><span class="highlight">Premiação:</span> Troféus, Brindes exclusivos e reconhecimento oficial</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- ORÇAMENTO -->
-        <div id="budget" class="content-section">
-            <h2 class="section-title">💰 Análise Financeira Detalhada</h2>
-            
-            <div class="financial-chart">
-                <h3 style="margin-bottom: 20px;">💸 Comparação de Custos</h3>
-                
-                <h4 style="color: #667eea; margin: 20px 0 10px 0;">🎮 Login - Cenário Conservador</h4>
-                <div class="chart-bar">
-                    <div class="chart-label">Local</div>
-                    <div class="chart-value" style="width: 0%;">R$ 0</div>
+        <!-- Slide 6: Infraestrutura Necessária -->
+        <div class="slide" id="slide-6">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Infraestrutura Necessária</h2>
+                    <h3>O que precisamos para o evento</h3>
                 </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Transporte</div>
-                    <div class="chart-value" style="width: 30%;">R$ 800 - R$ 1.200</div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Equipamentos</h3>
+                        <ul>
+                            <li><span class="highlight">Máquinas de Pump It Up:</span> 2-3 unidades</li>
+                            <li><span class="highlight">Sistema de som:</span> Amplificação profissional</li>
+                            <li><span class="highlight">Iluminação:</span> Luzes para palco e área de jogo</li>
+                            <li><span class="highlight">Equipamentos de transmissão:</span> Câmeras, microfones</li>
+                            <li><span class="highlight">Telas:</span> Para exibição das imagens das máquinas, vídeos exclusivos para o evento e resultados</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Espaço e Logística</h3>
+                        <ul>
+                            <li><span class="highlight">Área para máquinas:</span> Mínimo 5x5m por máquina</li>
+                            <li><span class="highlight">Área para público:</span> Capacidade para 100+ pessoas</li>
+                            <li><span class="highlight">Área técnica:</span> Para equipe de transmissão</li>
+                            <li><span class="highlight">Energia:</span> Pontos de energia estáveis</li>
+                            <li><span class="highlight">Internet:</span> Conexão de alta velocidade para streaming e conexão das máquinas</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Marketing</div>
-                    <div class="chart-value" style="width: 60%;">R$ 1.300 - R$ 2.400</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">RH</div>
-                    <div class="chart-value" style="width: 10%;">R$ 200 - R$ 300</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label"><strong>TOTAL</strong></div>
-                    <div class="chart-value" style="width: 100%;">R$ 2.600 - R$ 4.500</div>
-                </div>
-                
-                <h4 style="color: #667eea; margin: 30px 0 10px 0;">🏬 Ksquare - Cenário Ambicioso</h4>
-                <div class="chart-bar">
-                    <div class="chart-label">Local</div>
-                    <div class="chart-value" style="width: 50%;">R$ 2.500</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Som</div>
-                    <div class="chart-value" style="width: 8%;">R$ 400</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Transporte</div>
-                    <div class="chart-value" style="width: 24%;">R$ 800 - R$ 1.200</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Marketing</div>
-                    <div class="chart-value" style="width: 48%;">R$ 1.300 - R$ 2.400</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">RH</div>
-                    <div class="chart-value" style="width: 6%;">R$ 200 - R$ 300</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label"><strong>TOTAL</strong></div>
-                    <div class="chart-value" style="width: 100%;">R$ 5.600 - R$ 7.500</div>
-                </div>
-            </div>
-
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Participantes</th>
-                        <th>Receita (R$ 100)</th>
-                        <th>Login - Lucro</th>
-                        <th>Ksquare - Lucro</th>
-                        <th>Melhor Opção</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>40</td>
-                        <td>R$ 4.000</td>
-                        <td class="winner">+R$ 450</td>
-                        <td>-R$ 2.550</td>
-                        <td class="winner">Login</td>
-                    </tr>
-                    <tr>
-                        <td>50</td>
-                        <td>R$ 5.000</td>
-                        <td class="winner">+R$ 1.450</td>
-                        <td>-R$ 1.550</td>
-                        <td class="winner">Login</td>
-                    </tr>
-                    <tr>
-                        <td>70</td>
-                        <td>R$ 7.000</td>
-                        <td class="winner">+R$ 3.450</td>
-                        <td>+R$ 450</td>
-                        <td class="winner">Login</td>
-                    </tr>
-                    <tr>
-                        <td>80</td>
-                        <td>R$ 8.000</td>
-                        <td class="winner">+R$ 4.450</td>
-                        <td>+R$ 1.450</td>
-                        <td class="winner">Login</td>
-                    </tr>
-                    <tr>
-                        <td>100</td>
-                        <td>R$ 10.000</td>
-                        <td>N/A (limite 80)</td>
-                        <td class="winner">+R$ 3.450</td>
-                        <td class="winner">Ksquare</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">⏱️</span> Duração</h3>
-                    <p><strong>Login:</strong> 2 dias (12-13 horas) - Com 2 músicas/fase<br>
-                    <strong>Ksquare:</strong> 2-3 dias (20-22 horas) - Com 2 músicas/fase<br>
-                    <strong>Formato:</strong> Fim de semana estendido</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🤝</span> Apoiadores Confirmados</h3>
-                    <p><strong>LBPIU:</strong> Liga Brasileira de Pump It Up<br>
-                    <strong>Rising Flow:</strong> Canecas com desconto<br>
-                    <strong>Benefício:</strong> Redução de custos operacionais</p>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h3>📊 RECOMENDAÇÃO FINANCEIRA</h3>
-                <p><strong>LOGIN</strong> é a opção mais segura para o evento comemorativo</p>
-                <p>Lucro garantido com apenas 36 participantes vs 66 do Ksquare</p>
-                <p><strong>Receita adicional</strong> com venda de produtos aumentará a margem de segurança</p>
             </div>
         </div>
 
-        <!-- EQUIPE -->
-        <div id="team" class="content-section">
-            <h2 class="section-title">👥 Equipe e Recursos Humanos</h2>
-            
-            <h3 style="color: #4a5568; margin-bottom: 20px;">✅ Recursos Confirmados (Sem Custo)</h3>
-            <div class="team-grid">
-                <div class="team-card">
-                    <h4>🎯 Gestão</h4>
-                    <p>Conhecimento em regras e gestão de torneio</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <small>100% Confirmado</small>
+        <!-- Slide 7: Proposta de Parceria -->
+        <div class="slide" id="slide-8">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Proposta de Parceria</h2>
+                    <h3>Benefícios e Visibilidade</h3>
                 </div>
-                
-                <div class="team-card">
-                    <h4>🔧 Técnico</h4>
-                    <p>Experiência em manutenção de máquinas</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <small>100% Confirmado</small>
+                <div class="full-width-card">
+                    <h3>Colaboração Estratégica</h3>
+                    <p>Buscamos uma parceria para uso do espaço por 2 dias (22-23 de novembro)</p>
+                    <p>Evento comemorativo que celebra 20 anos de exitência e que também é parte da cultura sul-coreana</p>
                 </div>
-                
-                <div class="team-card">
-                    <h4>🎤 Apresentação</h4>
-                    <p>Apresentador do evento</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Benefícios para o Ksquare</h3>
+                        <ul>
+                            <li><span class="highlight">Exposição de marca:</span> Logo em todos os materiais</li>
+                            <li><span class="highlight">Transmissão ao vivo:</span> Menções durante o evento</li>
+                            <li><span class="highlight">Público qualificado:</span> 100+ pessoas no local</li>
+                            <li><span class="highlight">Mídia social:</span> Conteúdo exclusivo para redes</li>
+                            <li><span class="highlight">Networking:</span> Contato com comunidade engajada</li>
+                        </ul>
                     </div>
-                    <small>100% Confirmado</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>📺 Transmissão</h4>
-                    <p>Caster e comentarista</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
+                    <div class="info-card">
+                        <h3>Projeção de Público</h3>
+                        <ul>
+                            <li><span class="highlight">Participantes:</span> 70-100 competidores</li>
+                            <li><span class="highlight">Espectadores locais:</span> 80-100 pessoas</li>
+                            <li><span class="highlight">Audiência online:</span> 1000+ espectadores</li>
+                            <li><span class="highlight">Alcance em redes sociais:</span> 5000+ visualizações</li>
+                            <li><span class="highlight">Presença digital:</span> Conteúdo permanente pós-evento</li>
+                        </ul>
                     </div>
-                    <small>100% Confirmado</small>
                 </div>
-                
-                <div class="team-card">
-                    <h4>📱 Social Media</h4>
-                    <p>Alice - Responsável pelas redes sociais</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <small>100% Confirmado</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>🎬 Video Maker</h4>
-                    <p>LBPIU - Liga Brasileira</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <small>100% Confirmado</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>🎨 Designer</h4>
-                    <p>LBPIU - Liga Brasileira</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <small>100% Confirmado</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>👥 Staff Adicional</h4>
-                    <p>LBPIU - Liga Brasileira</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <small>100% Confirmado</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>🎯 Organizador Principal</h4>
-                    <p>PzOX - Coordenação Geral</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <small>100% Confirmado</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>🏆 Organização LBPIU</h4>
-                    <p>Dini, Brwnninha, Denis</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <small>100% Confirmado</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>🎨 Categoria Freestyle</h4>
-                    <p>Beffy (Responsável) + 5 Revisores</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 80%;"></div>
-                    </div>
-                    <small>80% - Regras em desenvolvimento</small>
-                </div>
-            </div>
-
-            <h3 style="color: #4a5568; margin: 40px 0 20px 0;">🔄 Recursos a Contratar</h3>
-            <div class="team-grid">
-                <div class="team-card">
-                    <h4>🚚 Transporte</h4>
-                    <p>Transporte das máquinas</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 20%;"></div>
-                    </div>
-                    <small>R$ 800-1.200 | A contratar</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>📸 Fotógrafo</h4>
-                    <p>Cobertura fotográfica</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 10%;"></div>
-                    </div>
-                    <small>R$ 200-300 | A contratar</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>🎵 Técnico de Som</h4>
-                    <p>Apenas para Ksquare</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%;"></div>
-                    </div>
-                    <small>R$ 400 | Se Ksquare</small>
-                </div>
-                
-                <div class="team-card">
-                    <h4>🎥 Cinegrafista</h4>
-                    <p>Filmagem do evento</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%;"></div>
-                    </div>
-                    <small>A definir | Opcional</small>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h3>🤝 PARCERIA ESTRATÉGICA</h3>
-                <p><strong>LBPIU (Liga Brasileira de Pump It Up)</strong> fornece a maior parte da equipe</p>
-                <p>Economia estimada de R$ 2.000-3.000 em recursos humanos</p>
             </div>
         </div>
 
-        <!-- SOCIAL MEDIA -->
-        <div id="social" class="content-section">
-            <h2 class="section-title">📱 Estratégia de Social Media</h2>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">👤</span> Responsável</h3>
-                    <p><strong>Alice</strong> - Coordenação de redes sociais<br>
-                    <strong>Apoio:</strong> LBPIU (Liga Brasileira)<br>
-                    <strong>Status:</strong> Cronograma definido</p>
+        <!-- Slide 8: Equipe Organizadora -->
+        <div class="slide" id="slide-9">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Equipe Organizadora</h2>
+                    <h3>Profissionais com experiência</h3>
                 </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🎯</span> Objetivos</h3>
-                    <p><strong>Alcance:</strong> 200+ pessoas<br>
-                    <strong>Engajamento:</strong> 5+ compartilhamentos<br>
-                    <strong>Comentários:</strong> 5+ por post<br>
-                    <strong>Conversão:</strong> Inscrições no evento</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">📺</span> Canais de Transmissão</h3>
-                    <p><strong>YouTube:</strong> Canal CBPIU<br>
-                    <strong>Twitch:</strong> Canais dos apresentadores<br>
-                    <strong>Apresentadores:</strong> PzOX, Dini, Brwnninha</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">📊</span> Métricas de Sucesso</h3>
-                    <p><strong>Visualizações:</strong> 1000+ por post principal<br>
-                    <strong>Interações:</strong> 50+ curtidas<br>
-                    <strong>Inscrições:</strong> 50+ participantes<br>
-                    <strong>Cobertura:</strong> Comunidade PIU Brasil</p>
-                </div>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">20 DE AGOSTO</div>
-                        <h4>🎨 Lançamento da Identidade Visual</h4>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>Organizadores Principais</h3>
                         <ul>
-                            <li><strong>Conteúdo:</strong> Logo oficial BRPF 2025</li>
-                            <li><strong>Plataformas:</strong> Instagram, Twitter, Facebook</li>
-                            <li><strong>Objetivo:</strong> Apresentar a marca do evento</li>
-                            <li><strong>Hashtags:</strong> #BRPF2025 #PumpItUp #20Anos</li>
+                            <li><span class="highlight">Jefferson Favetti (PzOX):</span> Organizador principal</li>
+                            <li>• Experiência em BRPF (2016, 2017, 2018)</li>
+                            <li>• Responsável por transmissões de diversos eventos</li>
+                            <li><span class="highlight">Dênis Lima (Filmadenis):</span> Organizador e mantenedor</li>
+                            <li>• Criador do Octógono Pump Natal</li>
+                            <li>• Experiência internacional (IPF 2014-2018)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Equipe de Suporte</h3>
+                        <ul>
+                            <li><span class="highlight">Laura Pataro (Dini):</span> Comunicação e design</li>
+                            <li>• Co-fundadora da LBPIU e CBPIU</li>
+                            <li>• Experiência em gestão de eventos</li>
+                            <li><span class="highlight">Bruna Rodrigues (Bru):</span> Organizadora</li>
+                            <li>• Criadora do Empowerful Girls</li>
+                            <li>• Representante do Pump Recife</li>
+                            <li><span class="highlight">Equipe LBPIU:</span> Suporte técnico e operacional</li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">28 DE AGOSTO</div>
-                        <h4>👥 Apresentação dos Organizadores</h4>
-                        <ul>
-                            <li><strong>Conteúdo:</strong> Carrossel com equipe organizadora</li>
-                            <li><strong>Destaque:</strong> PzOX, LBPIU, parceiros</li>
-                            <li><strong>Objetivo:</strong> Humanizar o evento</li>
-                            <li><strong>Formato:</strong> Cards individuais + biografia</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">01 DE SETEMBRO</div>
-                        <h4>🎨 PUBLICAÇÃO REGRAS FREESTYLE</h4>
-                        <ul>
-                            <li><strong>Conteúdo:</strong> Documento oficial das regras FS</li>
-                            <li><strong>Responsável:</strong> Beffy + Alice + Designer LBPIU</li>
-                            <li><strong>Objetivo:</strong> Divulgar categoria Freestyle</li>
-                            <li><strong>Plataformas:</strong> Todas as redes sociais LBPIU</li>
-                            <li><strong>Marco:</strong> Primeira categoria com regras publicadas</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">03 DE SETEMBRO</div>
-                        <h4>⏰ Posts de Proximidade</h4>
-                        <ul>
-                            <li><strong>Conteúdo:</strong> "Faltam X dias para o anúncio"</li>
-                            <li><strong>Frequência:</strong> Posts regulares</li>
-                            <li><strong>Objetivo:</strong> Manter engajamento</li>
-                            <li><strong>Call-to-action:</strong> "Prepare-se!"</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">09 DE SETEMBRO</div>
-                        <h4>📺 Anúncio da Live de Divulgação</h4>
-                        <ul>
-                            <li><strong>Conteúdo:</strong> Convite para live oficial</li>
-                            <li><strong>Data da Live:</strong> 12 de setembro</li>
-                            <li><strong>Objetivo:</strong> Maximizar audiência</li>
-                            <li><strong>Canais:</strong> YouTube + Twitch</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">12 DE SETEMBRO</div>
-                        <h4>🚀 ANÚNCIO OFICIAL</h4>
-                        <ul>
-                            <li><strong>Conteúdo:</strong> Live revelação data/local</li>
-                            <li><strong>Responsáveis:</strong> PzOX, Dini, Brwnninha</li>
-                            <li><strong>Objetivo:</strong> Lançamento oficial do evento</li>
-                            <li><strong>Marco:</strong> Abertura das inscrições</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="categories-grid">
-                <div class="category-card">
-                    <h4>📸 Conteúdo Visual</h4>
-                    <p>Logo oficial, banners promocionais, cards da equipe</p>
-                    <p><strong>Designer:</strong> LBPIU</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>🎬 Conteúdo Audiovisual</h4>
-                    <p>Vídeos promocionais, teasers, highlights</p>
-                    <p><strong>Video Maker:</strong> LBPIU</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>📝 Conteúdo Textual</h4>
-                    <p>Posts informativos, stories, legendas</p>
-                    <p><strong>Redação:</strong> Alice + LBPIU</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>🔴 Transmissão Ao Vivo</h4>
-                    <p>Lives de anúncio, Q&A, cobertura do evento</p>
-                    <p><strong>Apresentadores:</strong> PzOX, Dini, Brwnninha</p>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h3>📱 PLATAFORMAS PRINCIPAIS</h3>
-                <p><strong>Instagram:</strong> Posts, Stories, Reels | <strong>Twitter:</strong> Atualizações rápidas</p>
-                <p><strong>Facebook:</strong> Eventos e comunidade | <strong>YouTube:</strong> Conteúdo longo</p>
-                <p><strong>Twitch:</strong> Lives e interação | <strong>Discord:</strong> Comunidade ativa</p>
-            </div>
-
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Conteúdo</th>
-                        <th>Plataformas</th>
-                        <th>Objetivo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>20/08</strong></td>
-                        <td>Logo BRPF 2025</td>
-                        <td>Todas as redes</td>
-                        <td>Identidade visual</td>
-                    </tr>
-                    <tr>
-                        <td><strong>28/08</strong></td>
-                        <td>Carrossel organizadores</td>
-                        <td>Instagram, Facebook</td>
-                        <td>Apresentar equipe</td>
-                    </tr>
-                    <tr>
-                        <td><strong>03/09</strong></td>
-                        <td>Posts proximidade</td>
-                        <td>Stories, Twitter</td>
-                        <td>Manter engajamento</td>
-                    </tr>
-                    <tr>
-                        <td><strong>09/09</strong></td>
-                        <td>Anúncio da live</td>
-                        <td>Todas as redes</td>
-                        <td>Maximizar audiência</td>
-                    </tr>
-                    <tr class="winner">
-                        <td><strong>12-13/09</strong></td>
-                        <td>Lançamento oficial</td>
-                        <td>YouTube + todas</td>
-                        <td>Abertura inscrições</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- AUDIOVISUAL -->
-        <div id="audiovisual" class="content-section">
-            <h2 class="section-title">🎬 Produção Audiovisual</h2>
-            
-            <div class="highlight-box">
-                <h3>🎯 PROJETO COMEMORATIVO - 20 ANOS DE HISTÓRIA</h3>
-                <p><strong>11 vídeos</strong> celebrando a trajetória do cenário brasileiro de Pump it Up</p>
-                <p><strong>Duração total:</strong> 50-70 minutos | <strong>Prazo final:</strong> 21 de Novembro de 2025</p>
-                <p><strong>Cronograma acelerado:</strong> Setembro a Novembro 2025</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">📊</span> Visão Geral</h3>
-                    <p><strong>Total de Vídeos:</strong> 11<br>
-                    <strong>Categorias Temáticas:</strong> 4<br>
-                    <strong>Duração Total:</strong> 50-70 minutos<br>
-                    <strong>Qualidade:</strong> Full HD (1080p)</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🎬</span> Fases de Produção</h3>
-                    <p><strong>Pré-Produção:</strong> Setembro 2025<br>
-                    <strong>Produção:</strong> Outubro 2025<br>
-                    <strong>Pós-Produção:</strong> 1-21 Novembro<br>
-                    <strong>Entrega:</strong> 21 de Novembro</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">⚠️</span> Cronograma Crítico</h3>
-                    <p><strong>Pós-produção acelerada:</strong> 21 dias<br>
-                    <strong>Equipe reforçada:</strong> 2 editores + técnico<br>
-                    <strong>Trabalho intensivo:</strong> Fins de semana<br>
-                    <strong>Priorização:</strong> Vídeos críticos primeiro</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🎯</span> Objetivo Principal</h3>
-                    <p><strong>Celebrar:</strong> 20 anos de história<br>
-                    <strong>Homenagear:</strong> Protagonistas da comunidade<br>
-                    <strong>Preservar:</strong> Memória do cenário<br>
-                    <strong>Emocionar:</strong> Comunidade PIU Brasil</p>
-                </div>
-            </div>
-
-            <h3 style="color: #4a5568; margin: 40px 0 20px 0;">🎬 Categorias de Vídeos</h3>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <h4>📚 Históricos e Comemorativos</h4>
-                    <p><strong>Quantidade:</strong> 2 vídeos</p>
-                    <p><strong>Duração:</strong> 11-17 minutos</p>
-                    <p><strong>Vídeos:</strong> 20 Anos de História, BRPF 2026</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>🏆 Homenagens por Categoria</h4>
-                    <p><strong>Quantidade:</strong> 5 vídeos</p>
-                    <p><strong>Duração:</strong> 21-31 minutos</p>
-                    <p><strong>Vídeos:</strong> Campeões, Speed M/F, Freestylers, Organizadores</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>💝 Emocionais e Sociais</h4>
-                    <p><strong>Quantidade:</strong> 2 vídeos</p>
-                    <p><strong>Duração:</strong> 9-12 minutos</p>
-                    <p><strong>Vídeos:</strong> Laços, Homenagem aos Falecidos</p>
-                </div>
-                
-                <div class="category-card">
-                    <h4>🎭 Cerimoniais</h4>
-                    <p><strong>Quantidade:</strong> 2 vídeos</p>
-                    <p><strong>Duração:</strong> 5-7 minutos</p>
-                    <p><strong>Vídeos:</strong> Cerimônia Abertura/Encerramento</p>
-                </div>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">SETEMBRO 2025</div>
-                        <h4>📋 FASE 1: PRÉ-PRODUÇÃO</h4>
-                        <ul>
-                            <li><strong>Semana 1:</strong> Definição da equipe e orçamento</li>
-                            <li><strong>Semana 2:</strong> Coleta de material histórico</li>
-                            <li><strong>Semana 3:</strong> Seleção de entrevistados</li>
-                            <li><strong>Semana 4:</strong> Preparação técnica e contratos</li>
-                        </ul>
-                        <p><strong>Equipe:</strong> 3-4 pessoas | <strong>Orçamento:</strong> 20% do total</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">OUTUBRO 2025</div>
-                        <h4>🎬 FASE 2: PRODUÇÃO</h4>
-                        <ul>
-                            <li><strong>Semana 1:</strong> Vídeos Históricos (20 Anos, Organizadores)</li>
-                            <li><strong>Semana 2:</strong> Homenagens por Categoria (Campeões, Speed)</li>
-                            <li><strong>Semana 3:</strong> Vídeos Emocionais (Freestylers, Laços, Falecidos)</li>
-                            <li><strong>Semana 4:</strong> Vídeos Cerimoniais + Backup</li>
-                        </ul>
-                        <p><strong>Equipe:</strong> 6-8 pessoas | <strong>Orçamento:</strong> 50% do total</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">1-7 NOVEMBRO</div>
-                        <h4>✂️ PÓS-PRODUÇÃO - Primeira Etapa</h4>
-                        <ul>
-                            <li><strong>PRIORIDADE MÁXIMA:</strong> Cerimônia de Abertura (até 5/11)</li>
-                            <li><strong>Em paralelo:</strong> 20 Anos de História + Homenagem aos Campeões</li>
-                            <li><strong>Recursos:</strong> 2 editores trabalhando simultaneamente</li>
-                        </ul>
-                        <p><strong>Meta:</strong> 1 vídeo finalizado + 2 em progresso</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">8-14 NOVEMBRO</div>
-                        <h4>✂️ PÓS-PRODUÇÃO - Segunda Etapa</h4>
-                        <ul>
-                            <li><strong>Finalizar:</strong> 20 Anos (10/11) + Campeões (12/11)</li>
-                            <li><strong>Montar:</strong> Speed Masculino + Speed Feminino</li>
-                            <li><strong>Iniciar:</strong> Organizadores</li>
-                        </ul>
-                        <p><strong>Meta:</strong> 4 vídeos finalizados + 2 em progresso</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">15-21 NOVEMBRO</div>
-                        <h4>🚨 SEMANA FINAL - PRAZO CRÍTICO</h4>
-                        <ul>
-                            <li><strong>15-16/11:</strong> Freestylers + Organizadores + Laços</li>
-                            <li><strong>17-18/11:</strong> Falecidos + BRPF 2026 + Speed M/F</li>
-                            <li><strong>19-20/11:</strong> Cerimônia Encerramento + Revisões</li>
-                            <li><strong>21/11:</strong> <span class="status-critical">ENTREGA FINAL</span></li>
-                        </ul>
-                        <p><strong>Regime:</strong> Equipe completa em trabalho intensivo</p>
-                    </div>
-                </div>
-            </div>
-
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Vídeo</th>
-                        <th>Duração</th>
-                        <th>Prioridade</th>
-                        <th>Prazo</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Cerimônia de Abertura</strong></td>
-                        <td>2-3 min</td>
-                        <td class="winner">MÁXIMA</td>
-                        <td>05/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>20 Anos de História</strong></td>
-                        <td>8-12 min</td>
-                        <td class="winner">ALTA</td>
-                        <td>10/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Homenagem aos Campeões</strong></td>
-                        <td>5-7 min</td>
-                        <td class="winner">ALTA</td>
-                        <td>12/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Speed Masculino</strong></td>
-                        <td>4-6 min</td>
-                        <td>MÉDIA</td>
-                        <td>18/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Speed Feminino</strong></td>
-                        <td>4-6 min</td>
-                        <td>MÉDIA</td>
-                        <td>18/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Freestylers</strong></td>
-                        <td>5-7 min</td>
-                        <td>MÉDIA</td>
-                        <td>18/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Organizadores</strong></td>
-                        <td>3-5 min</td>
-                        <td>MÉDIA</td>
-                        <td>18/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Laços</strong></td>
-                        <td>6-8 min</td>
-                        <td>MÉDIA</td>
-                        <td>18/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Homenagem aos Falecidos</strong></td>
-                        <td>3-4 min</td>
-                        <td>PADRÃO</td>
-                        <td>21/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cerimônia de Encerramento</strong></td>
-                        <td>3-4 min</td>
-                        <td>PADRÃO</td>
-                        <td>21/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                    <tr>
-                        <td><strong>BRPF 2026</strong></td>
-                        <td>3-5 min</td>
-                        <td>PADRÃO</td>
-                        <td>21/11</td>
-                        <td>⏳ Aguardando</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="financial-chart">
-                <h3 style="margin-bottom: 20px;">📊 Distribuição de Recursos por Fase</h3>
-                
-                <div class="chart-bar">
-                    <div class="chart-label">Pré-Produção</div>
-                    <div class="chart-value" style="width: 20%;">20% - Planejamento (Setembro)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Produção</div>
-                    <div class="chart-value" style="width: 50%;">50% - Gravações (Outubro)</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="chart-label">Pós-Produção</div>
-                    <div class="chart-value" style="width: 30%;">30% - Edição (1-21 Nov)</div>
-                </div>
-            </div>
-
-            <h3 style="color: #4a5568; margin: 40px 0 20px 0;">🎬 Especificações Detalhadas dos Vídeos</h3>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">📚</span> 20 Anos de História</h3>
-                    <p><strong>Conceito:</strong> Documentário narrativo da evolução do PIU<br>
-                    <strong>Duração:</strong> 8-12 minutos<br>
-                    <strong>Estilo:</strong> Linha temporal com depoimentos<br>
-                    <strong>Exibição:</strong> Cerimônia de abertura</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🏆</span> Homenagem aos Campeões</h3>
-                    <p><strong>Conceito:</strong> Celebração dos grandes vencedores<br>
-                    <strong>Duração:</strong> 5-7 minutos<br>
-                    <strong>Estilo:</strong> Montagem dinâmica com highlights<br>
-                    <strong>Exibição:</strong> Durante premiações</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🎨</span> Freestylers</h3>
-                    <p><strong>Conceito:</strong> Tributo à criatividade artística<br>
-                    <strong>Duração:</strong> 5-7 minutos<br>
-                    <strong>Estilo:</strong> Artístico e fluido<br>
-                    <strong>Exibição:</strong> Antes das apresentações FS</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">💝</span> Laços</h3>
-                    <p><strong>Conceito:</strong> Conexões humanas através do PIU<br>
-                    <strong>Duração:</strong> 6-8 minutos<br>
-                    <strong>Estilo:</strong> Emotivo e caloroso<br>
-                    <strong>Exibição:</strong> Intervalos do evento</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🕊️</span> Homenagem aos Falecidos</h3>
-                    <p><strong>Conceito:</strong> Tributo respeitoso à memória<br>
-                    <strong>Duração:</strong> 3-4 minutos<br>
-                    <strong>Estilo:</strong> Solene e respeitoso<br>
-                    <strong>Exibição:</strong> Momento solene</p>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">🎭</span> Cerimônias</h3>
-                    <p><strong>Conceito:</strong> Vídeos épicos para abertura/encerramento<br>
-                    <strong>Duração:</strong> 2-4 minutos cada<br>
-                    <strong>Estilo:</strong> Cinematográfico e impactante<br>
-                    <strong>Exibição:</strong> Início e fim do evento</p>
-                </div>
-            </div>
-
-            <div class="risk-matrix">
-                <div class="risk-card risk-high">
-                    <h3>🚨 RISCOS CRÍTICOS AUDIOVISUAL</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Atraso na pós-produção:</strong> Cronograma apertado</li>
-                        <li><strong>Problemas técnicos:</strong> Falha de equipamentos</li>
-                        <li><strong>Indisponibilidade de entrevistados:</strong> Agenda conflitante</li>
-                        <li><strong>Material histórico:</strong> Dificuldade de acesso</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card risk-medium">
-                    <h3>⚠️ PLANOS DE CONTINGÊNCIA</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Editor adicional:</strong> Backup para semana final</li>
-                        <li><strong>Trabalho em turnos:</strong> 24h se necessário</li>
-                        <li><strong>Simplificação:</strong> Reduzir complexidade se atraso</li>
-                        <li><strong>Priorização:</strong> Focar vídeos essenciais</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card risk-low">
-                    <h3>✅ FATORES DE SUCESSO</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Equipe experiente:</strong> Profissionais qualificados</li>
-                        <li><strong>Cronograma estruturado:</strong> Fases bem definidas</li>
-                        <li><strong>Material rico:</strong> 20 anos de história</li>
-                        <li><strong>Comunidade engajada:</strong> Apoio para entrevistas</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card risk-success">
-                    <h3>🎯 MARCOS CRÍTICOS</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>15/09:</strong> Confirmação de entrevistados</li>
-                        <li><strong>31/10:</strong> Finalização de gravações</li>
-                        <li><strong>05/11:</strong> Primeiro vídeo finalizado</li>
-                        <li><strong>21/11:</strong> Entrega completa</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h3>🎬 IMPACTO ESPERADO</h3>
-                <p><strong>Preservação histórica:</strong> Documentar 20 anos de evolução do cenário</p>
-                <p><strong>Engajamento emocional:</strong> Fortalecer laços da comunidade PIU</p>
-                <p><strong>Legado duradouro:</strong> Material para futuras gerações</p>
-                <p><strong>Qualidade profissional:</strong> Padrão cinematográfico para o evento</p>
             </div>
         </div>
 
-        <!-- RISCOS -->
-        <div id="risks" class="content-section">
-            <h2 class="section-title">⚠️ Análise de Riscos e Contingências</h2>
-            
-            <div class="risk-matrix">
-                <div class="risk-card risk-high">
-                    <h3>🚨 RISCOS ALTOS</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Baixa participação:</strong> Menos de 40 inscritos</li>
-                        <li><strong>Atraso na decisão do local:</strong> Após 25/08</li>
-                        <li><strong>Problemas técnicos:</strong> Falha de equipamentos</li>
-                        <li><strong>Conflito de datas:</strong> Outros eventos</li>
-                    </ul>
+        <!-- Slide 9: Próximos Passos -->
+        <div class="slide" id="slide-10">
+            <div class="content-slide">
+                <div class="content-header">
+                    <h2>Próximos Passos</h2>
+                    <h3>Concretizando a parceria</h3>
                 </div>
-                
-                <div class="risk-card risk-medium">
-                    <h3>⚠️ RISCOS MÉDIOS</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Fornecedores:</strong> Indisponibilidade</li>
-                        <li><strong>Clima:</strong> Problemas no dia do evento</li>
-                        <li><strong>Transmissão:</strong> Instabilidade de internet</li>
-                        <li><strong>Logística:</strong> Atrasos no setup</li>
-                    </ul>
+                <div class="full-width-card">
+                    <h3>Cronograma de Decisão</h3>
+                    <p>Estamos em fase de negociação até <span class="highlight">05 de setembro de 2025</span></p>
+                    <p>Anúncio oficial do evento programado para <span class="highlight">12 de setembro de 2025</span></p>
                 </div>
-                
-                <div class="risk-card risk-low">
-                    <h3>✅ RISCOS BAIXOS</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Equipe:</strong> Recursos confirmados</li>
-                        <li><strong>Conhecimento:</strong> Experiência prévia</li>
-                        <li><strong>Equipamentos:</strong> Backup disponível</li>
-                        <li><strong>Comunidade:</strong> Interesse demonstrado</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card risk-medium">
-                    <h3>🛡️ PLANOS DE CONTINGÊNCIA</h3>
-                    <ul style="text-align: left;">
-                        <li><strong>Menos de 40 inscritos:</strong> Considerar adiamento</li>
-                        <li><strong>Problemas no local:</strong> Ativar local backup</li>
-                        <li><strong>Problemas técnicos:</strong> Equipamentos de backup</li>
-                        <li><strong>Cancelamento:</strong> Último recurso até 25/10</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h3>📊 INDICADORES DE SUCESSO</h3>
-                <p><strong>Financeiro:</strong> Login (40+ participantes) | Ksquare (66+ participantes)</p>
-                <p><strong>Qualidade:</strong> Evento sem atrasos | Transmissão estável | Participantes satisfeitos</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><span class="icon">🎯</span> Próximas 5 Ações Críticas</h3>
-                    <ol>
-                        <li><strong>✅ Definição do orçamento</strong> (15/08 - CONCLUÍDO)</li>
-                        <li><strong>Início negociação Ksquare</strong> (18/08 - PzOX)</li>
-                        <li><strong>Primeiro conteúdo redes sociais</strong> (20/08 - Alice)</li>
-                        <li><strong>Transmissão CBPIU</strong> (25/08 - Pump eSports)</li>
-                        <li><strong>DEADLINE KSQUARE</strong> (05/09 - Decisão final)</li>
-                    </ol>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span class="icon">📊</span> Dashboard de Status Atualizado</h3>
-                    <p><strong>Planejamento:</strong> 75% ✅<br>
-                    <strong>Organização:</strong> 25% 🟡<br>
-                    <strong>Execução:</strong> 5% 🟡<br>
-                    <strong>Negociação Local:</strong> Em andamento 🔄</p>
+                <div class="cards-container">
+                    <div class="info-card">
+                        <h3>O que precisamos definir</h3>
+                        <ul>
+                            <li><span class="highlight">Confirmação da data:</span> 22-23 de novembro (preferencial)</li>
+                            <li><span class="highlight">Detalhes do contrato:</span> Valores e condições</li>
+                            <li><span class="highlight">Necessidades técnicas:</span> Energia, som, espaço</li>
+                            <li><span class="highlight">Logística:</span> Horários de montagem e desmontagem</li>
+                            <li><span class="highlight">Divulgação:</span> Como promover o Ksquare no evento</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Contato</h3>
+                        <p style="text-align: center; margin-top: 20px;">
+                            <span class="highlight">Jefferson Favetti (PzOX)</span><br>
+                            Organizador BRPF 2025<br>
+                            <span class="highlight">jefferson.favetti@gmail.com</span><br>
+                            <span class="highlight">(19) 99675-9596</span>
+                        </p>
+                        <p style="text-align: center; margin-top: 20px;">
+                            <span class="highlight">Canais Oficiais:</span><br>
+                            YouTube: youtube.com/pumpesports<br>
+                            Twitch: twitch.tv/pumpesports<br>
+                            Instagram: @brpf2025 @lbpiu
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Botões de navegação -->
+        <button class="prev-button" onclick="prevSlide()">
+            <img src="../imagens/pink arrow.png" alt="Anterior">
+        </button>
+        <button class="next-button" onclick="nextSlide()">
+            <img src="../imagens/pink arrow.png" alt="Próximo">
+        </button>
     </div>
 
     <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
+        // Array para armazenar os slides
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        // Função para avançar para o próximo slide
+        function nextSlide() {
+            // Remover classe active do slide atual
+            slides[currentSlide].classList.remove('active');
             
-            // Remove active class from all tabs
-            const tabs = document.querySelectorAll('.nav-tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
+            // Avançar para o próximo slide ou voltar para o primeiro
+            currentSlide = (currentSlide + 1) % slides.length;
             
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to clicked tab
-            event.target.classList.add('active');
+            // Adicionar classe active ao novo slide atual
+            slides[currentSlide].classList.add('active');
         }
 
-        // Add smooth scrolling to top when switching sections
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-
-        // Add animation to progress bars when they come into view
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progressBars = entry.target.querySelectorAll('.progress-fill');
-                    progressBars.forEach(bar => {
-                        bar.style.animation = 'fillProgress 1s ease-out forwards';
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Observe all team cards
-        document.querySelectorAll('.team-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Add CSS animation for progress bars
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fillProgress {
-                from { width: 0%; }
-                to { width: var(--target-width, 100%); }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Set custom properties for progress bars
-        document.querySelectorAll('.progress-fill').forEach(bar => {
-            const width = bar.style.width;
-            bar.style.setProperty('--target-width', width);
-            bar.style.width = '0%';
-        });
-
-        // Add hover effects to cards
-        document.querySelectorAll('.info-card, .category-card, .team-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
+        // Função para voltar para o slide anterior
+        function prevSlide() {
+            // Remover classe active do slide atual
+            slides[currentSlide].classList.remove('active');
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add click animation to nav tabs
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-            });
-        });
-
-        // Add typing effect to highlight boxes
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            element.innerHTML = '';
+            // Voltar para o slide anterior ou ir para o último
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
+            // Adicionar classe active ao novo slide atual
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Permitir navegação com teclas de seta
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
             }
-            type();
-        }
-
-        // Initialize typing effect for critical deadline
-        const criticalDeadline = document.querySelector('.highlight-box p');
-        if (criticalDeadline) {
-            const originalText = criticalDeadline.textContent;
-            setTimeout(() => {
-                typeWriter(criticalDeadline, originalText, 30);
-            }, 1000);
-        }
-
-        // Add pulse animation to critical status indicators
-        document.querySelectorAll('.status-critical').forEach(indicator => {
-            indicator.style.animation = 'pulse 2s infinite';
         });
-
-        // Add pulse animation CSS
-        const pulseStyle = document.createElement('style');
-        pulseStyle.textContent = `
-            @keyframes pulse {
-                0% { box-shadow: 0 0 0 0 rgba(197, 48, 48, 0.7); }
-                70% { box-shadow: 0 0 0 10px rgba(197, 48, 48, 0); }
-                100% { box-shadow: 0 0 0 0 rgba(197, 48, 48, 0); }
-            }
-        `;
-        document.head.appendChild(pulseStyle);
-
-        // Add countdown timer for critical deadline (25 de agosto)
-        function updateCountdown() {
-            const deadline = new Date('2025-08-25T23:59:59');
-            const now = new Date();
-            const timeLeft = deadline - now;
-
-            if (timeLeft > 0) {
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                
-                const countdownElement = document.querySelector('.date-info');
-                if (countdownElement && days >= 0) {
-                    countdownElement.innerHTML += `<br><small>⏰ ${days} dias e ${hours} horas restantes para decisão crítica</small>`;
-                }
-            }
-        }
-
-        // Update countdown on page load
-        setTimeout(updateCountdown, 2000);
-
-        // Add print styles
-        const printStyle = document.createElement('style');
-        printStyle.textContent = `
-            @media print {
-                body { background: white !important; }
-                .nav-tabs { display: none; }
-                .content-section { display: block !important; page-break-after: always; }
-                .highlight-box { background: #f0f0f0 !important; color: black !important; }
-                .category-card, .team-card { background: #f8f8f8 !important; color: black !important; }
-            }
-        `;
-        document.head.appendChild(printStyle);
-
-        console.log('🎮 BRPF 2025 - Apresentação carregada com sucesso!');
-        console.log('📊 Todas as funcionalidades interativas ativadas.');
     </script>
 </body>
 </html>
